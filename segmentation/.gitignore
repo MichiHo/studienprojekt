@@ -1,0 +1,8 @@
+output/*
+plots/*
+stats/*
+training_logs/*
+# Custom folders:
+training_logs_sort
+unused_configs
+compare_InOut

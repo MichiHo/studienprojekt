@@ -1,0 +1,2177 @@
+{
+    "annotation": {
+        "filename": "ADE_train_00020434.jpg",
+        "folder": "ADE20K_2021_17_01/images/ADE/training/shopping_and_dining/bookstore",
+        "imsize": [1650, 2200, 3],
+        "source": {
+            "folder": "static_sun_database/b/bookstore",
+            "filename": "sun_axegrdryxqiyspkt.jpg",
+            "origin": "Downloaded from Google search. Image might be subject to copyright. Use only for non-commercial research and educational purposes."
+        },
+        "scene": ["indoor", "shopping and dining", "bookstore"],
+        "object": [{
+            "id": 0,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 1,
+            "occluded": [],
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_000_ADE_train_00020434.png",
+            "polygon": {
+                "x": [860, 872, 928, 950, 888],
+                "y": [822, 818, 813, 916, 922]
+            },
+            "saved_date": "18-Nov-2010 23:57:22"
+        }, {
+            "id": 1,
+            "name": "ceiling",
+            "name_ndx": 447,
+            "hypernym": ["ceiling", "upper surface", "side", "surface", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "ceiling",
+            "attributes": [],
+            "depth_ordering_rank": 2,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_001_ADE_train_00020434.png",
+            "polygon": {
+                "x": [0, 3, 1046, 2075],
+                "y": [2, 35, 150, 0]
+            },
+            "saved_date": "10-Oct-2019 21:20:07"
+        }, {
+            "id": 2,
+            "name": "wall",
+            "name_ndx": 2978,
+            "hypernym": ["wall", "partition, divider", "structure, construction", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "wall",
+            "attributes": [],
+            "depth_ordering_rank": 3,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_002_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1072, 1046, 2, 5, 185, 173, 522, 511, 476, 472, 1010, 1064, 1037, 1036],
+                "y": [1181, 145, 33, 1001, 966, 873, 851, 723, 717, 523, 502, 1169, 1186, 1193]
+            },
+            "saved_date": "10-Oct-2019 21:21:36"
+        }, {
+            "id": 3,
+            "name": "wall",
+            "name_ndx": 2978,
+            "hypernym": ["wall", "partition, divider", "structure, construction", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "wall",
+            "attributes": [],
+            "depth_ordering_rank": 4,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_003_ADE_train_00020434.png",
+            "polygon": {
+                "x": [2196, 2067, 1046, 1076, 1092, 1127, 1606, 1639, 1641, 2012, 2073, 2029, 2052, 2102, 2198],
+                "y": [2, 2, 145, 1184, 1192, 499, 504, 497, 437, 435, 437, 1444, 1440, 184, 177]
+            },
+            "saved_date": "10-Oct-2019 21:22:08"
+        }, {
+            "id": 4,
+            "name": "door",
+            "name_ndx": 774,
+            "hypernym": ["door", "movable barrier", "barrier", "obstruction, obstructor, obstructer, impediment, impedimenta", "structure, construction", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "door",
+            "attributes": [],
+            "depth_ordering_rank": 5,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_004_ADE_train_00020434.png",
+            "polygon": {
+                "x": [2077, 2056, 2100, 2199, 2199, 2122],
+                "y": [1426, 1438, 182, 177, 203, 208]
+            },
+            "saved_date": "10-Oct-2019 21:22:32"
+        }, {
+            "id": 5,
+            "name": "wall",
+            "name_ndx": 2978,
+            "hypernym": ["wall", "partition, divider", "structure, construction", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "wall",
+            "attributes": [],
+            "depth_ordering_rank": 6,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_005_ADE_train_00020434.png",
+            "polygon": {
+                "x": [2199, 2087, 2122, 2198],
+                "y": [1230, 1213, 206, 203]
+            },
+            "saved_date": "10-Oct-2019 21:23:10"
+        }, {
+            "id": 6,
+            "name": "shelf",
+            "name_ndx": 2329,
+            "hypernym": ["shelf", "support", "device", "instrumentality, instrumentation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "shelves",
+            "attributes": [],
+            "depth_ordering_rank": 7,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_006_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1624, 1641, 2016, 2079, 2029, 1974],
+                "y": [1380, 434, 434, 434, 1445, 1489]
+            },
+            "saved_date": "10-Oct-2019 21:23:39"
+        }, {
+            "id": 7,
+            "name": "vase",
+            "name_ndx": 2932,
+            "hypernym": ["vase", "jar", "vessel", "container", "instrumentality, instrumentation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "vase",
+            "attributes": [],
+            "depth_ordering_rank": 8,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_007_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1958, 1972, 1967, 1965, 1968, 1972, 1982, 1994, 1991, 1986, 1988, 1996],
+                "y": [276, 320, 357, 388, 417, 427, 429, 400, 373, 332, 299, 275]
+            },
+            "saved_date": "10-Oct-2019 21:25:33"
+        }, {
+            "id": 8,
+            "name": "flower",
+            "name_ndx": 978,
+            "hypernym": ["flower", "angiosperm, flowering plant", "spermatophyte, phanerogam, seed plant", "vascular plant, tracheophyte", "plant, flora, plant life", "organism, being", "living thing, animate thing", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "flowers",
+            "attributes": [],
+            "depth_ordering_rank": 9,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_008_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1991, 2011, 2026, 2040, 2049, 2044, 2054, 2072, 2075, 2067, 2068, 2068, 2052, 2047, 2029, 2017, 2017, 2009, 2009, 1998, 1991, 2000, 1982, 1998, 2000, 2003, 1974, 1961, 1953, 1912, 1912, 1895, 1902, 1891, 1921, 1923, 1937, 1949, 1949, 1958, 1974],
+                "y": [266, 250, 259, 250, 249, 229, 220, 214, 203, 200, 191, 179, 189, 187, 197, 202, 218, 214, 193, 187, 196, 206, 210, 224, 245, 249, 275, 266, 250, 245, 224, 215, 206, 193, 212, 189, 215, 220, 233, 257, 276]
+            },
+            "saved_date": "10-Oct-2019 21:25:58"
+        }, {
+            "id": 9,
+            "name": "exhibitor",
+            "name_ndx": 877,
+            "hypernym": [],
+            "raw_name": "exhibitor",
+            "attributes": [],
+            "depth_ordering_rank": 10,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_009_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1843, 1843, 1834, 1816, 1823, 1825, 1827, 1825, 1835, 1850, 1860, 1865, 1877, 1874, 1876, 1886, 1876, 1883, 1877, 1867, 1860, 1852, 1852, 1858],
+                "y": [429, 357, 361, 344, 331, 313, 285, 268, 275, 264, 264, 275, 270, 293, 305, 329, 341, 355, 371, 366, 352, 355, 408, 432]
+            },
+            "saved_date": "10-Oct-2019 21:26:27"
+        }, {
+            "id": 10,
+            "name": "exhibitor",
+            "name_ndx": 877,
+            "hypernym": [],
+            "raw_name": "exhibitor",
+            "attributes": [],
+            "depth_ordering_rank": 11,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_010_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1748, 1711, 1688, 1671, 1668, 1673, 1678, 1773, 1785, 1786, 1781, 1774, 1765],
+                "y": [331, 331, 346, 373, 399, 418, 427, 427, 417, 387, 364, 346, 338]
+            },
+            "saved_date": "10-Oct-2019 21:26:40"
+        }, {
+            "id": 11,
+            "name": "exhibitor",
+            "name_ndx": 877,
+            "hypernym": [],
+            "raw_name": "exhibitor",
+            "attributes": [],
+            "depth_ordering_rank": 12,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_011_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1778, 1723, 1725, 1718, 1717, 1699, 1697, 1703, 1688, 1695, 1685, 1695, 1687, 1694, 1685, 1692, 1685, 1697, 1692, 1708, 1752, 1781, 1783, 1794, 1792, 1790, 1790, 1799, 1790, 1800, 1794, 1802, 1790, 1794, 1781],
+                "y": [546, 544, 558, 558, 579, 579, 600, 617, 642, 651, 672, 679, 704, 707, 731, 733, 756, 763, 770, 778, 782, 778, 749, 743, 730, 705, 679, 675, 652, 649, 619, 614, 597, 579, 582]
+            },
+            "saved_date": "10-Oct-2019 21:27:08"
+        }, {
+            "id": 12,
+            "name": "exhibitor",
+            "name_ndx": 877,
+            "hypernym": [],
+            "raw_name": "exhibitor",
+            "attributes": [],
+            "depth_ordering_rank": 13,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_012_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1912, 1909, 1916, 1928, 1925, 1956, 1977, 1984, 1998, 2003],
+                "y": [537, 786, 793, 795, 803, 808, 808, 801, 801, 537]
+            },
+            "saved_date": "10-Oct-2019 21:27:23"
+        }, {
+            "id": 13,
+            "name": "box",
+            "name_ndx": 266,
+            "hypernym": ["box", "container", "instrumentality, instrumentation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "box",
+            "attributes": [],
+            "depth_ordering_rank": 14,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_013_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1818, 1781, 1779, 1762, 1761, 1802, 1816],
+                "y": [752, 749, 775, 784, 791, 795, 784]
+            },
+            "saved_date": "10-Oct-2019 21:27:34"
+        }, {
+            "id": 14,
+            "name": "exhibitor",
+            "name_ndx": 877,
+            "hypernym": [],
+            "raw_name": "exhibitor",
+            "attributes": [],
+            "depth_ordering_rank": 15,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_014_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1769, 1788, 1886, 1928, 1816],
+                "y": [954, 968, 977, 821, 810]
+            },
+            "saved_date": "10-Oct-2019 21:27:49"
+        }, {
+            "id": 15,
+            "name": "vase",
+            "name_ndx": 2932,
+            "hypernym": ["vase", "jar", "vessel", "container", "instrumentality, instrumentation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "vase",
+            "attributes": [],
+            "depth_ordering_rank": 16,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_015_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1680, 1668, 1678, 1673, 1664, 1664, 1674, 1682, 1671, 1683, 1706, 1727, 1734, 1727, 1743, 1746, 1729, 1738, 1748, 1743, 1729, 1694],
+                "y": [1069, 1085, 1111, 1125, 1134, 1167, 1188, 1198, 1211, 1219, 1219, 1216, 1213, 1197, 1167, 1134, 1118, 1101, 1085, 1076, 1078, 1074]
+            },
+            "saved_date": "10-Oct-2019 21:28:06"
+        }, {
+            "id": 16,
+            "name": "box",
+            "name_ndx": 266,
+            "hypernym": ["box", "container", "instrumentality, instrumentation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "box",
+            "attributes": [],
+            "depth_ordering_rank": 17,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_016_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1890, 1870, 1865, 1923, 1934, 1934],
+                "y": [1165, 1183, 1256, 1266, 1260, 1172]
+            },
+            "saved_date": "10-Oct-2019 21:28:16"
+        }, {
+            "id": 17,
+            "name": "shelf",
+            "name_ndx": 2329,
+            "hypernym": ["shelf", "support", "device", "instrumentality, instrumentation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "shelves",
+            "attributes": [],
+            "depth_ordering_rank": 18,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_017_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1125, 1125, 1090, 1127, 1606, 1639, 1627, 1605, 1587, 1580],
+                "y": [1237, 1197, 1190, 495, 502, 493, 1036, 1039, 1372, 1372]
+            },
+            "saved_date": "10-Oct-2019 21:28:33"
+        }, {
+            "id": 18,
+            "name": "board, plank",
+            "name_ndx": 220,
+            "hypernym": ["board, plank", "lumber, timber", "building material", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "board",
+            "attributes": [],
+            "depth_ordering_rank": 19,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_018_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1596, 1624, 1630, 1603, 1589],
+                "y": [1388, 1377, 1034, 1037, 1374]
+            },
+            "saved_date": "10-Oct-2019 21:28:45"
+        }, {
+            "id": 19,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 20,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_019_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1415, 1410, 1466, 1477, 1466],
+                "y": [578, 670, 673, 582, 582]
+            },
+            "saved_date": "10-Oct-2019 21:28:59"
+        }, {
+            "id": 20,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 21,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_020_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1169, 1151, 1197, 1211],
+                "y": [690, 782, 791, 696]
+            },
+            "saved_date": "10-Oct-2019 21:29:09"
+        }, {
+            "id": 21,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 22,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_021_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1269, 1216, 1197, 1254],
+                "y": [690, 688, 787, 796]
+            },
+            "saved_date": "10-Oct-2019 21:29:20"
+        }, {
+            "id": 22,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 23,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_022_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1341, 1272, 1256, 1319],
+                "y": [690, 684, 796, 803]
+            },
+            "saved_date": "10-Oct-2019 21:29:28"
+        }, {
+            "id": 23,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 24,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_023_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1395, 1339, 1321, 1375],
+                "y": [702, 696, 799, 810]
+            },
+            "saved_date": "10-Oct-2019 21:29:40"
+        }, {
+            "id": 24,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 25,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_024_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1466, 1456, 1403, 1375, 1440],
+                "y": [719, 698, 696, 807, 816]
+            },
+            "saved_date": "10-Oct-2019 21:30:32"
+        }, {
+            "id": 25,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 26,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_025_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1512, 1466, 1444, 1492],
+                "y": [731, 723, 816, 821]
+            },
+            "saved_date": "10-Oct-2019 21:30:40"
+        }, {
+            "id": 26,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 27,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_026_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1577, 1522, 1492, 1531, 1545, 1571],
+                "y": [721, 705, 819, 828, 828, 752]
+            },
+            "saved_date": "10-Oct-2019 21:30:50"
+        }, {
+            "id": 27,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 28,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_027_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1146, 1139, 1186, 1200],
+                "y": [801, 907, 912, 810]
+            },
+            "saved_date": "10-Oct-2019 21:30:59"
+        }, {
+            "id": 28,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 29,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_028_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1271, 1216, 1195, 1235, 1250],
+                "y": [817, 812, 915, 922, 920]
+            },
+            "saved_date": "10-Oct-2019 21:31:09"
+        }, {
+            "id": 29,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 30,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_029_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1326, 1272, 1254, 1309],
+                "y": [822, 817, 924, 931]
+            },
+            "saved_date": "10-Oct-2019 21:31:16"
+        }, {
+            "id": 30,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 31,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_030_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1397, 1328, 1309, 1374, 1384],
+                "y": [828, 819, 933, 942, 936]
+            },
+            "saved_date": "10-Oct-2019 21:31:27"
+        }, {
+            "id": 31,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 32,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_031_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1456, 1407, 1388, 1430],
+                "y": [857, 852, 943, 950]
+            },
+            "saved_date": "10-Oct-2019 21:31:38"
+        }, {
+            "id": 32,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 33,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_032_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1535, 1519, 1465, 1432, 1492, 1510],
+                "y": [843, 840, 834, 950, 960, 957]
+            },
+            "saved_date": "10-Oct-2019 21:31:49"
+        }, {
+            "id": 33,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 34,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_033_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1577, 1538, 1510, 1568],
+                "y": [851, 847, 960, 977]
+            },
+            "saved_date": "10-Oct-2019 21:31:58"
+        }, {
+            "id": 34,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 35,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_034_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1198, 1146, 1125, 1171],
+                "y": [952, 940, 1025, 1033]
+            },
+            "saved_date": "10-Oct-2019 21:32:07"
+        }, {
+            "id": 35,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 36,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_035_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1204, 1178, 1227, 1253],
+                "y": [940, 1036, 1045, 946]
+            },
+            "saved_date": "10-Oct-2019 21:32:15"
+        }, {
+            "id": 36,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 37,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_036_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1304, 1253, 1227, 1275],
+                "y": [959, 954, 1043, 1057]
+            },
+            "saved_date": "10-Oct-2019 21:32:24"
+        }, {
+            "id": 37,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 38,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_037_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1374, 1309, 1283, 1339, 1353],
+                "y": [959, 948, 1057, 1072, 1068]
+            },
+            "saved_date": "10-Oct-2019 21:32:40"
+        }, {
+            "id": 38,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 39,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_038_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1435, 1375, 1354, 1388, 1415],
+                "y": [969, 963, 1069, 1080, 1081]
+            },
+            "saved_date": "10-Oct-2019 21:32:50"
+        }, {
+            "id": 39,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 40,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_039_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1517, 1448, 1424, 1484, 1494],
+                "y": [1001, 987, 1081, 1099, 1095]
+            },
+            "saved_date": "10-Oct-2019 21:33:01"
+        }, {
+            "id": 40,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 41,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_040_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1151, 1116, 1169, 1206],
+                "y": [1050, 1144, 1157, 1055]
+            },
+            "saved_date": "10-Oct-2019 21:33:12"
+        }, {
+            "id": 41,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 42,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_041_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1260, 1206, 1171, 1221],
+                "y": [1068, 1059, 1157, 1169]
+            },
+            "saved_date": "10-Oct-2019 21:33:21"
+        }, {
+            "id": 42,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 43,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_042_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1326, 1260, 1221, 1284],
+                "y": [1081, 1071, 1171, 1188]
+            },
+            "saved_date": "10-Oct-2019 21:33:33"
+        }, {
+            "id": 43,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 44,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_043_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1389, 1326, 1286, 1353],
+                "y": [1097, 1085, 1186, 1206]
+            },
+            "saved_date": "10-Oct-2019 21:33:42"
+        }, {
+            "id": 44,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 45,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_044_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1454, 1391, 1354, 1419],
+                "y": [1128, 1115, 1206, 1221]
+            },
+            "saved_date": "10-Oct-2019 21:33:52"
+        }, {
+            "id": 45,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 46,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_045_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1512, 1457, 1423, 1477],
+                "y": [1136, 1128, 1223, 1239]
+            },
+            "saved_date": "10-Oct-2019 21:34:00"
+        }, {
+            "id": 46,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 47,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_046_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1522, 1479, 1536, 1547, 1556],
+                "y": [1125, 1239, 1254, 1256, 1134]
+            },
+            "saved_date": "10-Oct-2019 21:34:10"
+        }, {
+            "id": 47,
+            "name": "shelf",
+            "name_ndx": 2329,
+            "hypernym": ["shelf", "support", "device", "instrumentality, instrumentation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "shelf",
+            "attributes": [],
+            "depth_ordering_rank": 48,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_047_ADE_train_00020434.png",
+            "polygon": {
+                "x": [582, 1036, 1034, 1069, 1015, 469, 478, 514, 522, 544, 574],
+                "y": [1372, 1228, 1186, 1172, 499, 523, 716, 723, 851, 852, 1349]
+            },
+            "saved_date": "10-Oct-2019 21:34:37"
+        }, {
+            "id": 48,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 49,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_048_ADE_train_00020434.png",
+            "polygon": {
+                "x": [971, 907, 934, 1001],
+                "y": [558, 565, 665, 660]
+            },
+            "saved_date": "10-Oct-2019 21:34:47"
+        }, {
+            "id": 49,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 50,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_049_ADE_train_00020434.png",
+            "polygon": {
+                "x": [892, 840, 863, 915],
+                "y": [582, 590, 672, 667]
+            },
+            "saved_date": "10-Oct-2019 21:34:57"
+        }, {
+            "id": 50,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 51,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_050_ADE_train_00020434.png",
+            "polygon": {
+                "x": [831, 773, 795, 859],
+                "y": [576, 581, 679, 673]
+            },
+            "saved_date": "10-Oct-2019 21:35:08"
+        }, {
+            "id": 51,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 52,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_051_ADE_train_00020434.png",
+            "polygon": {
+                "x": [763, 707, 714, 773],
+                "y": [611, 616, 688, 682]
+            },
+            "saved_date": "10-Oct-2019 21:35:19"
+        }, {
+            "id": 52,
+            "name": "painting, picture",
+            "name_ndx": 1735,
+            "hypernym": ["painting, picture", "graphic art", "art, fine art", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "picture",
+            "attributes": "photo",
+            "depth_ordering_rank": 53,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_052_ADE_train_00020434.png",
+            "polygon": {
+                "x": [686, 600, 609, 693],
+                "y": [621, 626, 696, 690]
+            },
+            "saved_date": "10-Oct-2019 21:35:36"
+        }, {
+            "id": 53,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 54,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_053_ADE_train_00020434.png",
+            "polygon": {
+                "x": [605, 543, 546, 569, 637],
+                "y": [726, 733, 786, 842, 831]
+            },
+            "saved_date": "10-Oct-2019 21:36:15"
+        }, {
+            "id": 54,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 55,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_054_ADE_train_00020434.png",
+            "polygon": {
+                "x": [679, 634, 609, 637, 710],
+                "y": [721, 730, 731, 831, 821]
+            },
+            "saved_date": "10-Oct-2019 21:36:26"
+        }, {
+            "id": 55,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 56,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_055_ADE_train_00020434.png",
+            "polygon": {
+                "x": [742, 682, 712, 770],
+                "y": [714, 721, 821, 814]
+            },
+            "saved_date": "10-Oct-2019 21:36:34"
+        }, {
+            "id": 56,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 57,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_056_ADE_train_00020434.png",
+            "polygon": {
+                "x": [796, 745, 773, 831],
+                "y": [714, 723, 812, 805]
+            },
+            "saved_date": "10-Oct-2019 21:36:44"
+        }, {
+            "id": 57,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 58,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_057_ADE_train_00020434.png",
+            "polygon": {
+                "x": [861, 828, 801, 834, 892],
+                "y": [714, 723, 723, 801, 795]
+            },
+            "saved_date": "10-Oct-2019 21:36:53"
+        }, {
+            "id": 58,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 59,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_058_ADE_train_00020434.png",
+            "polygon": {
+                "x": [933, 880, 866, 896, 964],
+                "y": [682, 688, 693, 796, 787]
+            },
+            "saved_date": "10-Oct-2019 21:37:04"
+        }, {
+            "id": 59,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 60,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_059_ADE_train_00020434.png",
+            "polygon": {
+                "x": [985, 940, 968, 1011],
+                "y": [688, 695, 787, 778]
+            },
+            "saved_date": "10-Oct-2019 21:37:12"
+        }, {
+            "id": 60,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 61,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_060_ADE_train_00020434.png",
+            "polygon": {
+                "x": [617, 570, 582, 648],
+                "y": [1013, 1025, 1120, 1106]
+            },
+            "saved_date": "10-Oct-2019 21:38:33"
+        }, {
+            "id": 61,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 62,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_061_ADE_train_00020434.png",
+            "polygon": {
+                "x": [700, 630, 660, 731],
+                "y": [981, 994, 1101, 1090]
+            },
+            "saved_date": "10-Oct-2019 21:38:45"
+        }, {
+            "id": 62,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 63,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_062_ADE_train_00020434.png",
+            "polygon": {
+                "x": [591, 555, 565, 625],
+                "y": [864, 872, 980, 971]
+            },
+            "saved_date": "10-Oct-2019 21:38:57"
+        }, {
+            "id": 63,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 64,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_063_ADE_train_00020434.png",
+            "polygon": {
+                "x": [670, 595, 626, 690],
+                "y": [851, 863, 973, 960]
+            },
+            "saved_date": "10-Oct-2019 21:39:05"
+        }, {
+            "id": 64,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 65,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_064_ADE_train_00020434.png",
+            "polygon": {
+                "x": [731, 673, 688, 752],
+                "y": [849, 857, 959, 948]
+            },
+            "saved_date": "10-Oct-2019 21:39:17"
+        }, {
+            "id": 65,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 66,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_065_ADE_train_00020434.png",
+            "polygon": {
+                "x": [795, 733, 756, 819],
+                "y": [833, 842, 948, 936]
+            },
+            "saved_date": "10-Oct-2019 21:39:31"
+        }, {
+            "id": 66,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 67,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_066_ADE_train_00020434.png",
+            "polygon": {
+                "x": [857, 821, 810, 834, 878, 880],
+                "y": [854, 861, 868, 934, 927, 919]
+            },
+            "saved_date": "10-Oct-2019 21:39:41"
+        }, {
+            "id": 67,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 68,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_067_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1001, 942, 931, 959, 1022],
+                "y": [796, 801, 808, 912, 901]
+            },
+            "saved_date": "10-Oct-2019 21:39:50"
+        }, {
+            "id": 68,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 69,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_068_ADE_train_00020434.png",
+            "polygon": {
+                "x": [768, 707, 737, 801],
+                "y": [968, 980, 1083, 1072]
+            },
+            "saved_date": "10-Oct-2019 21:40:02"
+        }, {
+            "id": 69,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 70,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_069_ADE_train_00020434.png",
+            "polygon": {
+                "x": [833, 781, 803, 861],
+                "y": [980, 990, 1071, 1059]
+            },
+            "saved_date": "10-Oct-2019 21:40:12"
+        }, {
+            "id": 70,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 71,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_070_ADE_train_00020434.png",
+            "polygon": {
+                "x": [894, 828, 872, 936, 915],
+                "y": [936, 952, 1055, 1037, 1002]
+            },
+            "saved_date": "10-Oct-2019 21:40:21"
+        }, {
+            "id": 71,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 72,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_071_ADE_train_00020434.png",
+            "polygon": {
+                "x": [959, 907, 919, 936, 983, 966],
+                "y": [927, 942, 1006, 1036, 1029, 971]
+            },
+            "saved_date": "10-Oct-2019 21:40:30"
+        }, {
+            "id": 72,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 73,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_072_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1002, 964, 968, 985, 1036],
+                "y": [931, 943, 973, 1027, 1020]
+            },
+            "saved_date": "10-Oct-2019 21:40:39"
+        }, {
+            "id": 73,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 74,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_073_ADE_train_00020434.png",
+            "polygon": {
+                "x": [644, 586, 597, 670],
+                "y": [1150, 1160, 1258, 1239]
+            },
+            "saved_date": "10-Oct-2019 21:40:49"
+        }, {
+            "id": 74,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 75,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_074_ADE_train_00020434.png",
+            "polygon": {
+                "x": [705, 639, 669, 731],
+                "y": [1116, 1130, 1232, 1218]
+            },
+            "saved_date": "10-Oct-2019 21:40:58"
+        }, {
+            "id": 75,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 76,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_075_ADE_train_00020434.png",
+            "polygon": {
+                "x": [766, 705, 731, 786],
+                "y": [1101, 1115, 1218, 1206]
+            },
+            "saved_date": "10-Oct-2019 21:41:07"
+        }, {
+            "id": 76,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 77,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_076_ADE_train_00020434.png",
+            "polygon": {
+                "x": [817, 772, 786, 851],
+                "y": [1095, 1102, 1204, 1192]
+            },
+            "saved_date": "10-Oct-2019 21:41:16"
+        }, {
+            "id": 77,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 78,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_077_ADE_train_00020434.png",
+            "polygon": {
+                "x": [875, 822, 849, 899],
+                "y": [1085, 1092, 1186, 1174]
+            },
+            "saved_date": "10-Oct-2019 21:41:24"
+        }, {
+            "id": 78,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 79,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_078_ADE_train_00020434.png",
+            "polygon": {
+                "x": [938, 880, 903, 969],
+                "y": [1083, 1093, 1175, 1159]
+            },
+            "saved_date": "10-Oct-2019 21:41:32"
+        }, {
+            "id": 79,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 80,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_079_ADE_train_00020434.png",
+            "polygon": {
+                "x": [973, 943, 971, 1004],
+                "y": [1074, 1081, 1157, 1146]
+            },
+            "saved_date": "10-Oct-2019 21:41:40"
+        }, {
+            "id": 80,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 81,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_080_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1015, 975, 1008, 1055],
+                "y": [1057, 1069, 1144, 1134]
+            },
+            "saved_date": "10-Oct-2019 21:41:48"
+        }, {
+            "id": 81,
+            "name": "shelf",
+            "name_ndx": 2329,
+            "hypernym": ["shelf", "support", "device", "instrumentality, instrumentation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "shelves",
+            "attributes": [],
+            "depth_ordering_rank": 82,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_081_ADE_train_00020434.png",
+            "polygon": {
+                "x": [490, 579, 572, 548, 530, 409, 367, 175, 180, 245, 301, 343, 379, 384, 367, 318, 499, 522, 479],
+                "y": [1401, 1380, 1353, 849, 845, 863, 854, 872, 919, 907, 905, 907, 910, 924, 938, 946, 1013, 1235, 1250]
+            },
+            "saved_date": "10-Oct-2019 21:42:12"
+        }, {
+            "id": 82,
+            "name": "cabinet",
+            "name_ndx": 350,
+            "hypernym": ["cabinet", "furniture, piece of furniture, article of furniture", "furnishing", "instrumentality, instrumentation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "cabinet",
+            "attributes": [],
+            "depth_ordering_rank": 83,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_082_ADE_train_00020434.png",
+            "polygon": {
+                "x": [2, 462, 509, 481, 523, 504, 327, 189, 3],
+                "y": [1648, 1650, 1632, 1251, 1237, 1015, 950, 960, 996]
+            },
+            "saved_date": "10-Oct-2019 21:42:33"
+        }, {
+            "id": 83,
+            "name": "tray",
+            "name_ndx": 2850,
+            "hypernym": ["tray", "receptacle", "container", "instrumentality, instrumentation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "trays",
+            "attributes": [],
+            "depth_ordering_rank": 84,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_083_ADE_train_00020434.png",
+            "polygon": {
+                "x": [270, 261, 262, 255, 257, 222, 197, 187, 210, 259, 266, 243, 197, 184, 189, 235, 273, 271, 241, 182, 170, 175, 208, 262, 253, 235, 238, 257, 196, 193, 346, 344, 303, 308, 326, 320, 308, 329, 361, 385, 385, 361, 299, 285, 285, 315, 355, 364, 355, 320, 278, 276, 303, 322, 336, 341, 320, 276, 276, 271],
+                "y": [604, 661, 670, 675, 716, 714, 721, 731, 749, 752, 808, 808, 812, 828, 840, 854, 857, 901, 907, 912, 929, 943, 950, 955, 964, 978, 994, 1010, 1018, 1057, 1037, 1018, 1004, 990, 983, 966, 955, 950, 943, 927, 910, 903, 899, 901, 863, 854, 845, 826, 814, 803, 805, 743, 743, 740, 733, 721, 714, 714, 669, 669]
+            },
+            "saved_date": "10-Oct-2019 21:43:58"
+        }, {
+            "id": 84,
+            "name": "system",
+            "name_ndx": 2683,
+            "hypernym": ["system", "instrumentality, instrumentation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "music system",
+            "attributes": [],
+            "depth_ordering_rank": 85,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_084_ADE_train_00020434.png",
+            "polygon": {
+                "x": [355, 364, 408, 525, 513, 472],
+                "y": [723, 847, 863, 845, 723, 710]
+            },
+            "saved_date": "10-Oct-2019 21:44:18"
+        }, {
+            "id": 85,
+            "name": "loudspeaker, speaker, speaker unit, loudspeaker system, speaker system",
+            "name_ndx": 1474,
+            "hypernym": ["loudspeaker, speaker, speaker unit, loudspeaker system, speaker system", "electro-acoustic transducer", "transducer", "electrical device", "device", "instrumentality, instrumentation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "speaker",
+            "attributes": [],
+            "depth_ordering_rank": 86,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_085_ADE_train_00020434.png",
+            "polygon": {
+                "x": [572, 504, 462, 466, 511, 576],
+                "y": [388, 390, 394, 522, 522, 514]
+            },
+            "saved_date": "10-Oct-2019 21:44:33"
+        }, {
+            "id": 86,
+            "name": "loudspeaker, speaker, speaker unit, loudspeaker system, speaker system",
+            "name_ndx": 1474,
+            "hypernym": ["loudspeaker, speaker, speaker unit, loudspeaker system, speaker system", "electro-acoustic transducer", "transducer", "electrical device", "device", "instrumentality, instrumentation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "speaker",
+            "attributes": [],
+            "depth_ordering_rank": 87,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_086_ADE_train_00020434.png",
+            "polygon": {
+                "x": [994, 994, 946, 899, 903, 948],
+                "y": [390, 495, 499, 497, 394, 399]
+            },
+            "saved_date": "10-Oct-2019 21:45:21"
+        }, {
+            "id": 87,
+            "name": "exhi",
+            "name_ndx": 3187,
+            "hypernym": [],
+            "raw_name": "exhi",
+            "attributes": [],
+            "depth_ordering_rank": 88,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_087_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1151, 1151, 1211, 1265, 1258, 1221, 1216, 1215, 1204, 1200],
+                "y": [233, 490, 491, 493, 247, 250, 252, 241, 241, 233]
+            },
+            "saved_date": "10-Oct-2019 21:45:37"
+        }, {
+            "id": 88,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 89,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_088_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1580, 1519, 1500, 1498, 1568, 1582],
+                "y": [381, 378, 384, 499, 499, 495]
+            },
+            "saved_date": "10-Oct-2019 21:45:49"
+        }, {
+            "id": 89,
+            "name": "book",
+            "name_ndx": 236,
+            "hypernym": ["book", "publication", "work, piece of work", "product, production", "creation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "book",
+            "attributes": [],
+            "depth_ordering_rank": 90,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_089_ADE_train_00020434.png",
+            "polygon": {
+                "x": [889, 828, 824, 828, 898],
+                "y": [411, 411, 418, 500, 502]
+            },
+            "saved_date": "10-Oct-2019 21:46:12"
+        }, {
+            "id": 90,
+            "name": "pot, flowerpot",
+            "name_ndx": 1981,
+            "hypernym": ["pot, flowerpot", "container", "instrumentality, instrumentation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "plant pot",
+            "attributes": [],
+            "depth_ordering_rank": 91,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_090_ADE_train_00020434.png",
+            "polygon": {
+                "x": [688, 696, 728, 801, 810, 775, 731],
+                "y": [441, 506, 509, 504, 448, 448, 444]
+            },
+            "saved_date": "10-Oct-2019 21:46:30"
+        }, {
+            "id": 91,
+            "name": "plant, flora, plant life",
+            "name_ndx": 1910,
+            "hypernym": ["plant, flora, plant life", "organism, being", "living thing, animate thing", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "plant",
+            "attributes": [],
+            "depth_ordering_rank": 92,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_091_ADE_train_00020434.png",
+            "polygon": {
+                "x": [690, 669, 652, 688, 688, 702, 702, 712, 723, 735, 749, 749, 775, 791, 796, 812, 816, 829, 819, 801, 777, 740, 716, 696],
+                "y": [429, 418, 408, 415, 400, 420, 390, 397, 381, 399, 385, 399, 404, 404, 411, 397, 408, 402, 422, 443, 446, 448, 444, 441]
+            },
+            "saved_date": "10-Oct-2019 21:46:48"
+        }, {
+            "id": 92,
+            "name": "mirror",
+            "name_ndx": 1564,
+            "hypernym": ["mirror", "reflector", "device", "instrumentality, instrumentation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "mirror",
+            "attributes": [],
+            "depth_ordering_rank": 93,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_092_ADE_train_00020434.png",
+            "polygon": {
+                "x": [644, 651, 660, 652, 656, 658, 669, 690, 696, 705, 714, 728, 733, 756, 761, 772, 770, 777, 745, 731, 714, 696, 670],
+                "y": [247, 287, 311, 338, 373, 399, 408, 396, 411, 390, 397, 379, 399, 379, 402, 400, 266, 259, 255, 255, 250, 257, 250]
+            },
+            "saved_date": "10-Oct-2019 21:47:04"
+        }, {
+            "id": 93,
+            "name": "board, plank",
+            "name_ndx": 220,
+            "hypernym": ["board, plank", "lumber, timber", "building material", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "board",
+            "attributes": [],
+            "depth_ordering_rank": 94,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_093_ADE_train_00020434.png",
+            "polygon": {
+                "x": [457, 5, 14, 257, 259, 266, 268, 270, 276, 280, 318, 466],
+                "y": [366, 364, 733, 708, 673, 670, 600, 667, 667, 710, 710, 690]
+            },
+            "saved_date": "10-Oct-2019 21:47:28"
+        }, {
+            "id": 94,
+            "name": "paper",
+            "name_ndx": 1756,
+            "hypernym": ["paper", "material, stuff", "substance", "matter", "physical entity", "entity"],
+            "raw_name": "paper",
+            "attributes": [],
+            "depth_ordering_rank": 95,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_094_ADE_train_00020434.png",
+            "polygon": {
+                "x": [154, 168, 262, 270, 273, 284, 276],
+                "y": [483, 649, 642, 600, 644, 644, 479]
+            },
+            "saved_date": "10-Oct-2019 21:47:49"
+        }, {
+            "id": 95,
+            "name": "��r",
+            "name_ndx": 3188,
+            "hypernym": [],
+            "raw_name": "��r",
+            "attributes": [],
+            "depth_ordering_rank": 96,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_095_ADE_train_00020434.png",
+            "polygon": {
+                "x": [344, 355, 458, 455],
+                "y": [535, 690, 681, 530]
+            },
+            "saved_date": "10-Oct-2019 21:48:00"
+        }, {
+            "id": 96,
+            "name": "paper",
+            "name_ndx": 1756,
+            "hypernym": ["paper", "material, stuff", "substance", "matter", "physical entity", "entity"],
+            "raw_name": "paper",
+            "attributes": [],
+            "depth_ordering_rank": 97,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_096_ADE_train_00020434.png",
+            "polygon": {
+                "x": [144, 11, 40, 161],
+                "y": [488, 504, 649, 630]
+            },
+            "saved_date": "10-Oct-2019 21:48:10"
+        }, {
+            "id": 97,
+            "name": "ashcan, trash can, garbage can, wastebin, ash bin, ash-bin, ashbin, dustbin, trash barrel, trash bin",
+            "name_ndx": 64,
+            "hypernym": ["ashcan, trash can, garbage can, wastebin, ash bin, ash-bin, ashbin, dustbin, trash barrel, trash bin", "bin", "container", "instrumentality, instrumentation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "trash can",
+            "attributes": [],
+            "depth_ordering_rank": 98,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_097_ADE_train_00020434.png",
+            "polygon": {
+                "x": [570, 572, 590, 586, 582, 551, 530, 495, 508, 537, 560],
+                "y": [1589, 1489, 1479, 1456, 1417, 1401, 1400, 1401, 1615, 1606, 1597]
+            },
+            "saved_date": "10-Oct-2019 21:50:04"
+        }, {
+            "id": 98,
+            "name": "floor, flooring",
+            "name_ndx": 976,
+            "hypernym": ["floor, flooring", "horizontal surface, level", "surface", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "floor",
+            "attributes": [],
+            "depth_ordering_rank": 99,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_098_ADE_train_00020434.png",
+            "polygon": {
+                "x": [2198, 2199, 2089, 2081, 2034, 1970, 1624, 1597, 1589, 1124, 1124, 1090, 1036, 1036, 581, 514, 544, 579, 588, 570, 572, 557, 513, 513, 469],
+                "y": [1650, 1230, 1215, 1423, 1442, 1486, 1379, 1382, 1374, 1237, 1198, 1192, 1192, 1232, 1374, 1397, 1397, 1414, 1477, 1492, 1587, 1597, 1610, 1632, 1648]
+            },
+            "saved_date": "10-Oct-2019 21:50:37"
+        }, {
+            "id": 99,
+            "name": "rug, carpet, carpeting",
+            "name_ndx": 2178,
+            "hypernym": ["rug, carpet, carpeting", "floor cover, floor covering", "covering", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "carpet",
+            "attributes": [],
+            "depth_ordering_rank": 100,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_099_ADE_train_00020434.png",
+            "polygon": {
+                "x": [959, 880, 763, 1905, 1903, 1893, 1852, 1453, 1090],
+                "y": [1435, 1517, 1641, 1648, 1564, 1521, 1529, 1491, 1448]
+            },
+            "saved_date": "10-Oct-2019 21:51:13"
+        }, {
+            "id": 100,
+            "name": "spotlight, spot",
+            "name_ndx": 2509,
+            "hypernym": ["spotlight, spot", "lamp", "source of illumination", "device", "instrumentality, instrumentation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "ceiling spotlight",
+            "attributes": [],
+            "depth_ordering_rank": 101,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_100_ADE_train_00020434.png",
+            "polygon": {
+                "x": [756, 758, 766, 766, 760, 747, 752, 775, 785, 793, 789, 785, 776, 775, 781, 783],
+                "y": [30, 49, 51, 71, 84, 122, 132, 135, 135, 90, 71, 63, 67, 49, 49, 28]
+            },
+            "saved_date": "10-Oct-2019 21:51:45"
+        }, {
+            "id": 101,
+            "name": "spotlight, spot",
+            "name_ndx": 2509,
+            "hypernym": ["spotlight, spot", "lamp", "source of illumination", "device", "instrumentality, instrumentation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "ceiling spotlight",
+            "attributes": [],
+            "depth_ordering_rank": 102,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_101_ADE_train_00020434.png",
+            "polygon": {
+                "x": [936, 934, 942, 942, 933, 929, 931, 947, 964, 971, 963, 955, 948, 952, 956, 956],
+                "y": [26, 45, 47, 70, 80, 98, 123, 131, 127, 120, 94, 78, 73, 45, 45, 26]
+            },
+            "saved_date": "10-Oct-2019 21:52:03"
+        }, {
+            "id": 102,
+            "name": "spotlight, spot",
+            "name_ndx": 2509,
+            "hypernym": ["spotlight, spot", "lamp", "source of illumination", "device", "instrumentality, instrumentation", "artifact, artefact", "whole, unit", "object, physical object", "physical entity", "entity"],
+            "raw_name": "ceiling spotlight",
+            "attributes": [],
+            "depth_ordering_rank": 103,
+            "occluded": "no",
+            "crop": "0",
+            "parts": {
+                "hasparts": [],
+                "ispartof": [],
+                "part_level": 0
+            },
+            "instance_mask": "ADE_train_00020434/instance_102_ADE_train_00020434.png",
+            "polygon": {
+                "x": [1165, 1165, 1173, 1177, 1167, 1157, 1161, 1171, 1191, 1203, 1196, 1188, 1180, 1182, 1188, 1188],
+                "y": [26, 45, 47, 61, 62, 85, 123, 129, 127, 117, 90, 76, 65, 46, 45, 28]
+            },
+            "saved_date": "10-Oct-2019 21:52:28"
+        }]
+    }
+}

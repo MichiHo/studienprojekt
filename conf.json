@@ -1,0 +1,118 @@
+{
+    "dataset_out_dir": "mmsegmentation/data/studienprojekt",
+    "ade_index_path": "ADE20K_2021_17_01/index_ade20k.pkl",
+    "ade_classes_new_path": "ADE20K_2021_17_01/classes_new.pkl",
+    "ade_dir": "ADE20K_2021_17_01",
+    "labelme_dir": "other_datasets/labelmefacade",
+    "cmp_dir": "other_datasets/cmp_facade",
+    "annotate_snippets_dir": "ade20k/snippets",
+    "annotate_filers_conf": "ade20k/filters.json",
+    "segmentation_logs_dir": "segmentation/training_logs",
+    "segmentation_plots_dir": "segmentation/plots",
+    "segmentation_stats_dir": "segmentation/stats",
+    "segmentation_model_dir": "segmentation/work_dir",
+    "segmentation_out_dir": "segmentation/output",
+    "test_images_dir": "own_test_imgs",
+    "extension_datasets_val_every": 10,
+    "classes": [{
+        "name": "background",
+        "color": [128, 128, 128],
+        "id": 0,
+        "scene": "both"
+    }, {
+        "name": "window",
+        "color": [255, 0, 0],
+        "id": 1,
+        "scene": "both"
+    }, {
+        "name": "door",
+        "color": [127, 0, 0],
+        "id": 2,
+        "scene": "both"
+    }, {
+        "name": "ceiling",
+        "color": [0, 255, 0],
+        "id": 3,
+        "scene": "indoor"
+    }, {
+        "name": "floor",
+        "color": [0, 0, 255],
+        "id": 4,
+        "scene": "indoor"
+    }, {
+        "name": "building",
+        "color": [0, 128, 0],
+        "id": 5,
+        "scene": "outdoor"
+    }, {
+        "name": "stairs",
+        "color": [47, 79, 79],
+        "id": 6,
+        "scene": "both"
+    }, {
+        "name": "roof",
+        "color": [0, 0, 128],
+        "id": 7,
+        "scene": "outdoor"
+    }, {
+        "name": "balcony",
+        "color": [85, 107, 47],
+        "id": 8,
+        "scene": "outdoor"
+    }, {
+        "name": "chimney",
+        "color": [72, 61, 139],
+        "id": 9,
+        "scene": "outdoor"
+    }, {
+        "name": "column",
+        "color": [188, 143, 143],
+        "id": 10,
+        "scene": "both"
+    }, {
+        "name": "sink",
+        "color": [154, 205, 50],
+        "id": 11,
+        "scene": "indoor"
+    }, {
+        "name": "toilet",
+        "color": [139, 0, 139],
+        "id": 12,
+        "scene": "indoor"
+    }, {
+        "name": "bathtub",
+        "color": [255, 165, 0],
+        "id": 13,
+        "scene": "indoor"
+    }, {
+        "name": "shower",
+        "color": [255, 255, 0],
+        "id": 14,
+        "scene": "indoor"
+    }, {
+        "name": "outlet",
+        "color": [64, 224, 208],
+        "id": 15,
+        "scene": "indoor"
+    }, {
+        "name": "vents",
+        "color": [0, 250, 154],
+        "id": 16,
+        "scene": "indoor"
+    }, {
+        "name": "fire_extinguisher",
+        "color": [138, 43, 226],
+        "id": 17,
+        "scene": "indoor"
+    }, {
+        "name": "radiator",
+        "color": [255, 127, 80],
+        "id": 18,
+        "scene": "indoor"
+    }, {
+        "name": "railing",
+        "color": [255, 0, 255],
+        "id": 19,
+        "scene": "both"
+    }]
+}

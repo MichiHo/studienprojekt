@@ -1,0 +1,16 @@
+__pycache__
+own_test_imgs/indoor/*
+own_test_imgs/outdoor/*
+mmsegmentation
+ADE20K_2021_17_01
+# custom folders:
+papers
+doc
+other_segmentation_approaches
+determine_weights
+discarded_scripts
+sync.sh
+ToDo.md
+
+.directory
+desktop.ini

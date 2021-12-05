@@ -1,0 +1,6 @@
+output
+exploration
+.vscode
+ADE20K_2021_17_01
+*.pyc
+.~lock.*

@@ -1,0 +1,336 @@
+{
+    "classes": [{
+            "name": "environment",
+            "scene": "outdoor",
+            "z_index": -100,
+            "synonyms": "remains"
+        },
+        {
+            "name": "wall_indoor",
+            "z_index": -100,
+            "scene": "indoor",
+            "synonyms": "remains"
+        }, {
+            "name": "window",
+            "z_index": 1,
+            "synonyms": [{
+                    "name": "window",
+                    "parents": [
+                        "building, edifice",
+                        "house",
+                        "skyscraper",
+                        "beacon, lighthouse, beacon light, pharos",
+                        "tower",
+                        "dormer",
+                        "hovel, hut, hutch, shack, shanty",
+                        "control tower",
+                        "henhouse",
+                        "mosque",
+                        "factory",
+                        "service station",
+                        "temple",
+                        "booth, cubicle, stall, kiosk",
+                        "cabin",
+                        "watchtower",
+                        "observation tower",
+                        "shanties",
+                        "shanty",
+                        "barn",
+                        "fort",
+                        "shed",
+                        "shelter",
+                        "church",
+                        "ranch",
+                        "windmill, aerogenerator, wind generator",
+                        "wheelhouse",
+                        "water mill",
+                        "toll booth"
+                    ]
+                },
+                "windowpane, window",
+                "bow window",
+                "display window, shop window, shopwindow, show window",
+                "dormer, dormer window",
+                "office window",
+                "pane, pane of glass, window glass",
+                "shop window",
+                "stained-glass window",
+                "ticket window",
+                "rose window",
+                "window rose"
+            ]
+        },
+        {
+            "name": "door",
+            "z_index": 1,
+            "synonyms": [{
+                    "name": "door",
+                    "parents": [
+                        "NONE",
+                        "building, edifice",
+                        "house",
+                        "hovel, hut, hutch, shack, shanty",
+                        "henhouse",
+                        "greenhouse",
+                        "mosque",
+                        "beacon, lighthouse, beacon light, pharos",
+                        "confessional booth",
+                        "seat",
+                        "sill",
+                        "balcony",
+                        "windmill, aerogenerator, wind generator",
+                        "ranch",
+                        "shed",
+                        "ruins",
+                        "file, file cabinet, filing cabinet",
+                        "shanties",
+                        "terrace",
+                        "bar",
+                        "canopy",
+                        "houseboat",
+                        "cold store",
+                        "cabin",
+                        "church",
+                        "factory",
+                        "fort",
+                        "gazebo",
+                        "huts",
+                        "guardhouse",
+                        "garage",
+                        "tower",
+                        "toll booth",
+                        "observatory",
+                        "outhouse wc",
+                        "temple",
+                        "watchtower",
+                        "service station",
+                        "street box",
+                        "shelter"
+                    ]
+                },
+                {
+                    "name": "doors",
+                    "parents": [
+                        "house",
+                        "building, edifice"
+                    ]
+                },
+                {
+                    "name": "sliding door",
+                    "parents": [
+                        "NONE"
+                    ]
+                },
+                {
+                    "name": "gate",
+                    "parents": [
+                        "NONE",
+                        "barn",
+                        "building, edifice",
+                        "building arena"
+                    ]
+                },
+                "double door",
+                "elevator door",
+                "elevator doors",
+                "garage door",
+                "garage doors",
+                "revolving door",
+                "revolving doors",
+                "shower door",
+                "sliding doors",
+                "gate"
+            ]
+        },
+        {
+            "name": "ceiling",
+            "scene": "indoor",
+            "z_index": -1,
+            "synonyms": [{
+                "name": "ceiling",
+                "parents": [
+                    "NONE",
+                    "building, edifice",
+                    "elevator, lift"
+                ]
+            }]
+        },
+        {
+            "name": "floor",
+            "scene": "indoor",
+            "z_index": -1,
+            "synonyms": ["floor, flooring"]
+        },
+        {
+            "name": "building",
+            "scene": "outdoor",
+            "z_index": -1,
+            "synonyms": [{
+                    "name": "wall",
+                    "parents": [
+                        "NONE",
+                        "elevator, lift",
+                        "building, edifice"
+                    ]
+                },
+                "wood wall",
+                "building, edifice",
+                "house",
+                "gas station",
+                "petrol station"
+            ]
+        },
+        {
+            "name": "stairs",
+            "synonyms": [{
+                    "name": "step",
+                    "parents": ["building, edifice"]
+                },
+                {
+                    "name": "staircase",
+                    "parents": ["house", "building, edifice"]
+                },
+                "stairway, staircase",
+                "step, stair",
+                "escalator, moving staircase, moving stairway"
+            ]
+        },
+        {
+            "name": "roof",
+            "scene": "outdoor",
+            "z_index": -1,
+            "synonyms": [{
+                "name": "roof",
+                "parents": [
+                    "NONE",
+                    "building, edifice",
+                    "house",
+                    "beacon, lighthouse, beacon light, pharos",
+                    "shed",
+                    "temple",
+                    "service station",
+                    "dormer",
+                    "barn",
+                    "shelter",
+                    "hovel, hut, hutch, shack, shanty"
+                ]
+            }]
+        },
+        {
+            "name": "balcony",
+            "scene": "outdoor",
+            "synonyms": [
+                "balcony",
+                {
+                    "name": "balustrade",
+                    "parents": ["tower", "house", "building, edifice"]
+                }
+            ]
+        },
+        {
+            "name": "air_conditioner",
+            "z_index": 1,
+            "synonyms": ["air conditioner, air conditioning"]
+        },
+        {
+            "name": "chimney",
+            "scene": "outdoor",
+            "synonyms": ["chimney"]
+        },
+        {
+            "name": "column",
+            "synonyms": [{
+                    "name": "column",
+                    "parents": [
+                        "gas station",
+                        "service station",
+                        "bridge, span",
+                        "acropolis",
+                        "bandstand",
+                        "mosque",
+                        "tower",
+                        "house",
+                        "building, edifice"
+                    ]
+                },
+                "column, pillar"
+            ]
+        },
+        {
+            "name": "sink",
+            "z_index": 1,
+            "scene": "indoor",
+            "synonyms": ["sink"]
+        },
+        {
+            "name": "toilet",
+            "z_index": 1,
+            "scene": "indoor",
+            "synonyms": ["toilet, can, commode, crapper, pot, potty, stool, throne"]
+        },
+        {
+            "name": "bathtub",
+            "z_index": 1,
+            "scene": "indoor",
+            "synonyms": ["bathtub, bathing tub, bath, tub"]
+        },
+        {
+            "name": "shower",
+            "scene": "indoor",
+            "z_index": 1,
+            "synonyms": ["shower", "showers"]
+        }, {
+            "name": "outlet",
+            "z_index": 1,
+            "scene": "indoor",
+            "synonyms": ["wall socket, wall plug, electric outlet, electrical outlet, outlet, electric receptacle", "switch, electric switch, electrical switch"]
+        },
+        {
+            "name": "vents",
+            "z_index": 1,
+            "scene": "indoor",
+            "synonyms": [{
+                    "name": "vent",
+                    "parents": ["building, edifice"]
+                },
+                "vent, venthole, vent-hole, blowhole"
+            ]
+        },
+        {
+            "name": "fire_extinguisher",
+            "scene": "indoor",
+            "z_index": 1,
+            "synonyms": ["fire extinguisher, extinguisher, asphyxiator"]
+        }, {
+            "name": "oven",
+            "z_index": 1,
+            "scene": "indoor",
+            "synonyms": ["stove, kitchen stove, range, kitchen range, cooking stove"]
+        }, {
+            "name": "radiator",
+            "z_index": 1,
+            "scene": "indoor",
+            "synonyms": ["radiator"]
+        },
+        {
+            "name": "railing",
+            "synonyms": [{
+                    "name": "railing",
+                    "parents": [
+                        "bridge, span",
+                        "tower",
+                        "footbridge, overcrossing, pedestrian bridge",
+                        "house",
+                        "building, edifice"
+                    ]
+                },
+                "railing, rail"
+            ]
+        },
+        {
+            "name": "fire_escape",
+            "scene": "outdoor",
+            "synonyms": ["fire escape"]
+        }
+    ]
+}

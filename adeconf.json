@@ -1,0 +1,764 @@
+{
+    "description": "The 150 classes of the ADE20k Benchmark dataset (plus Background class).",
+    "training_logs_dir": "segmentation/training_logs",
+    "segmentation_plots_dir": "segmentation/generated_plots",
+    "segmentation_work_dir": "segmentation/work_dir",
+    "test_images_dir": "own_test_imgs",
+    "inference_out_dir": "~/ssh_transfer",
+    "classes": [{
+        "name": "background",
+        "color": [0, 0, 0],
+        "id": 0,
+        "scene": "both"
+    }, {
+        "name": "wall",
+        "color": [120, 120, 120],
+        "id": 1,
+        "scene": "both"
+    }, {
+        "name": "building",
+        "color": [180, 120, 120],
+        "id": 2,
+        "scene": "both"
+    }, {
+        "name": "sky",
+        "color": [6, 230, 230],
+        "id": 3,
+        "scene": "both"
+    }, {
+        "name": "floor",
+        "color": [80, 50, 50],
+        "id": 4,
+        "scene": "both"
+    }, {
+        "name": "tree",
+        "color": [4, 200, 3],
+        "id": 5,
+        "scene": "both"
+    }, {
+        "name": "ceiling",
+        "color": [120, 120, 80],
+        "id": 6,
+        "scene": "both"
+    }, {
+        "name": "road",
+        "color": [140, 140, 140],
+        "id": 7,
+        "scene": "both"
+    }, {
+        "name": "bed ",
+        "color": [204, 5, 255],
+        "id": 8,
+        "scene": "both"
+    }, {
+        "name": "windowpane",
+        "color": [230, 230, 230],
+        "id": 9,
+        "scene": "both"
+    }, {
+        "name": "grass",
+        "color": [4, 250, 7],
+        "id": 10,
+        "scene": "both"
+    }, {
+        "name": "cabinet",
+        "color": [224, 5, 255],
+        "id": 11,
+        "scene": "both"
+    }, {
+        "name": "sidewalk",
+        "color": [235, 255, 7],
+        "id": 12,
+        "scene": "both"
+    }, {
+        "name": "person",
+        "color": [150, 5, 61],
+        "id": 13,
+        "scene": "both"
+    }, {
+        "name": "earth",
+        "color": [120, 120, 70],
+        "id": 14,
+        "scene": "both"
+    }, {
+        "name": "door",
+        "color": [8, 255, 51],
+        "id": 15,
+        "scene": "both"
+    }, {
+        "name": "table",
+        "color": [255, 6, 82],
+        "id": 16,
+        "scene": "both"
+    }, {
+        "name": "mountain",
+        "color": [143, 255, 140],
+        "id": 17,
+        "scene": "both"
+    }, {
+        "name": "plant",
+        "color": [204, 255, 4],
+        "id": 18,
+        "scene": "both"
+    }, {
+        "name": "curtain",
+        "color": [255, 51, 7],
+        "id": 19,
+        "scene": "both"
+    }, {
+        "name": "chair",
+        "color": [204, 70, 3],
+        "id": 20,
+        "scene": "both"
+    }, {
+        "name": "car",
+        "color": [0, 102, 200],
+        "id": 21,
+        "scene": "both"
+    }, {
+        "name": "water",
+        "color": [61, 230, 250],
+        "id": 22,
+        "scene": "both"
+    }, {
+        "name": "painting",
+        "color": [255, 6, 51],
+        "id": 23,
+        "scene": "both"
+    }, {
+        "name": "sofa",
+        "color": [11, 102, 255],
+        "id": 24,
+        "scene": "both"
+    }, {
+        "name": "shelf",
+        "color": [255, 7, 71],
+        "id": 25,
+        "scene": "both"
+    }, {
+        "name": "house",
+        "color": [255, 9, 224],
+        "id": 26,
+        "scene": "both"
+    }, {
+        "name": "sea",
+        "color": [9, 7, 230],
+        "id": 27,
+        "scene": "both"
+    }, {
+        "name": "mirror",
+        "color": [220, 220, 220],
+        "id": 28,
+        "scene": "both"
+    }, {
+        "name": "rug",
+        "color": [255, 9, 92],
+        "id": 29,
+        "scene": "both"
+    }, {
+        "name": "field",
+        "color": [112, 9, 255],
+        "id": 30,
+        "scene": "both"
+    }, {
+        "name": "armchair",
+        "color": [8, 255, 214],
+        "id": 31,
+        "scene": "both"
+    }, {
+        "name": "seat",
+        "color": [7, 255, 224],
+        "id": 32,
+        "scene": "both"
+    }, {
+        "name": "fence",
+        "color": [255, 184, 6],
+        "id": 33,
+        "scene": "both"
+    }, {
+        "name": "desk",
+        "color": [10, 255, 71],
+        "id": 34,
+        "scene": "both"
+    }, {
+        "name": "rock",
+        "color": [255, 41, 10],
+        "id": 35,
+        "scene": "both"
+    }, {
+        "name": "wardrobe",
+        "color": [7, 255, 255],
+        "id": 36,
+        "scene": "both"
+    }, {
+        "name": "lamp",
+        "color": [224, 255, 8],
+        "id": 37,
+        "scene": "both"
+    }, {
+        "name": "bathtub",
+        "color": [102, 8, 255],
+        "id": 38,
+        "scene": "both"
+    }, {
+        "name": "railing",
+        "color": [255, 61, 6],
+        "id": 39,
+        "scene": "both"
+    }, {
+        "name": "cushion",
+        "color": [255, 194, 7],
+        "id": 40,
+        "scene": "both"
+    }, {
+        "name": "base",
+        "color": [255, 122, 8],
+        "id": 41,
+        "scene": "both"
+    }, {
+        "name": "box",
+        "color": [0, 255, 20],
+        "id": 42,
+        "scene": "both"
+    }, {
+        "name": "column",
+        "color": [255, 8, 41],
+        "id": 43,
+        "scene": "both"
+    }, {
+        "name": "signboard",
+        "color": [255, 5, 153],
+        "id": 44,
+        "scene": "both"
+    }, {
+        "name": "chest of drawers",
+        "color": [6, 51, 255],
+        "id": 45,
+        "scene": "both"
+    }, {
+        "name": "counter",
+        "color": [235, 12, 255],
+        "id": 46,
+        "scene": "both"
+    }, {
+        "name": "sand",
+        "color": [160, 150, 20],
+        "id": 47,
+        "scene": "both"
+    }, {
+        "name": "sink",
+        "color": [0, 163, 255],
+        "id": 48,
+        "scene": "both"
+    }, {
+        "name": "skyscraper",
+        "color": [140, 140, 140],
+        "id": 49,
+        "scene": "both"
+    }, {
+        "name": "fireplace",
+        "color": [250, 10, 15],
+        "id": 50,
+        "scene": "both"
+    }, {
+        "name": "refrigerator",
+        "color": [20, 255, 0],
+        "id": 51,
+        "scene": "both"
+    }, {
+        "name": "grandstand",
+        "color": [31, 255, 0],
+        "id": 52,
+        "scene": "both"
+    }, {
+        "name": "path",
+        "color": [255, 31, 0],
+        "id": 53,
+        "scene": "both"
+    }, {
+        "name": "stairs",
+        "color": [255, 224, 0],
+        "id": 54,
+        "scene": "both"
+    }, {
+        "name": "runway",
+        "color": [153, 255, 0],
+        "id": 55,
+        "scene": "both"
+    }, {
+        "name": "case",
+        "color": [0, 0, 255],
+        "id": 56,
+        "scene": "both"
+    }, {
+        "name": "pool table",
+        "color": [255, 71, 0],
+        "id": 57,
+        "scene": "both"
+    }, {
+        "name": "pillow",
+        "color": [0, 235, 255],
+        "id": 58,
+        "scene": "both"
+    }, {
+        "name": "screen door",
+        "color": [0, 173, 255],
+        "id": 59,
+        "scene": "both"
+    }, {
+        "name": "stairway",
+        "color": [31, 0, 255],
+        "id": 60,
+        "scene": "both"
+    }, {
+        "name": "river",
+        "color": [11, 200, 200],
+        "id": 61,
+        "scene": "both"
+    }, {
+        "name": "bridge",
+        "color": [255, 82, 0],
+        "id": 62,
+        "scene": "both"
+    }, {
+        "name": "bookcase",
+        "color": [0, 255, 245],
+        "id": 63,
+        "scene": "both"
+    }, {
+        "name": "blind",
+        "color": [0, 61, 255],
+        "id": 64,
+        "scene": "both"
+    }, {
+        "name": "coffee table",
+        "color": [0, 255, 112],
+        "id": 65,
+        "scene": "both"
+    }, {
+        "name": "toilet",
+        "color": [0, 255, 133],
+        "id": 66,
+        "scene": "both"
+    }, {
+        "name": "flower",
+        "color": [255, 0, 0],
+        "id": 67,
+        "scene": "both"
+    }, {
+        "name": "book",
+        "color": [255, 163, 0],
+        "id": 68,
+        "scene": "both"
+    }, {
+        "name": "hill",
+        "color": [255, 102, 0],
+        "id": 69,
+        "scene": "both"
+    }, {
+        "name": "bench",
+        "color": [194, 255, 0],
+        "id": 70,
+        "scene": "both"
+    }, {
+        "name": "countertop",
+        "color": [0, 143, 255],
+        "id": 71,
+        "scene": "both"
+    }, {
+        "name": "stove",
+        "color": [51, 255, 0],
+        "id": 72,
+        "scene": "both"
+    }, {
+        "name": "palm",
+        "color": [0, 82, 255],
+        "id": 73,
+        "scene": "both"
+    }, {
+        "name": "kitchen island",
+        "color": [0, 255, 41],
+        "id": 74,
+        "scene": "both"
+    }, {
+        "name": "computer",
+        "color": [0, 255, 173],
+        "id": 75,
+        "scene": "both"
+    }, {
+        "name": "swivel chair",
+        "color": [10, 0, 255],
+        "id": 76,
+        "scene": "both"
+    }, {
+        "name": "boat",
+        "color": [173, 255, 0],
+        "id": 77,
+        "scene": "both"
+    }, {
+        "name": "bar",
+        "color": [0, 255, 153],
+        "id": 78,
+        "scene": "both"
+    }, {
+        "name": "arcade machine",
+        "color": [255, 92, 0],
+        "id": 79,
+        "scene": "both"
+    }, {
+        "name": "hovel",
+        "color": [255, 0, 255],
+        "id": 80,
+        "scene": "both"
+    }, {
+        "name": "bus",
+        "color": [255, 0, 245],
+        "id": 81,
+        "scene": "both"
+    }, {
+        "name": "towel",
+        "color": [255, 0, 102],
+        "id": 82,
+        "scene": "both"
+    }, {
+        "name": "light",
+        "color": [255, 173, 0],
+        "id": 83,
+        "scene": "both"
+    }, {
+        "name": "truck",
+        "color": [255, 0, 20],
+        "id": 84,
+        "scene": "both"
+    }, {
+        "name": "tower",
+        "color": [255, 184, 184],
+        "id": 85,
+        "scene": "both"
+    }, {
+        "name": "chandelier",
+        "color": [0, 31, 255],
+        "id": 86,
+        "scene": "both"
+    }, {
+        "name": "awning",
+        "color": [0, 255, 61],
+        "id": 87,
+        "scene": "both"
+    }, {
+        "name": "streetlight",
+        "color": [0, 71, 255],
+        "id": 88,
+        "scene": "both"
+    }, {
+        "name": "booth",
+        "color": [255, 0, 204],
+        "id": 89,
+        "scene": "both"
+    }, {
+        "name": "television receiver",
+        "color": [0, 255, 194],
+        "id": 90,
+        "scene": "both"
+    }, {
+        "name": "airplane",
+        "color": [0, 255, 82],
+        "id": 91,
+        "scene": "both"
+    }, {
+        "name": "dirt track",
+        "color": [0, 10, 255],
+        "id": 92,
+        "scene": "both"
+    }, {
+        "name": "apparel",
+        "color": [0, 112, 255],
+        "id": 93,
+        "scene": "both"
+    }, {
+        "name": "pole",
+        "color": [51, 0, 255],
+        "id": 94,
+        "scene": "both"
+    }, {
+        "name": "land",
+        "color": [0, 194, 255],
+        "id": 95,
+        "scene": "both"
+    }, {
+        "name": "bannister",
+        "color": [0, 122, 255],
+        "id": 96,
+        "scene": "both"
+    }, {
+        "name": "escalator",
+        "color": [0, 255, 163],
+        "id": 97,
+        "scene": "both"
+    }, {
+        "name": "ottoman",
+        "color": [255, 153, 0],
+        "id": 98,
+        "scene": "both"
+    }, {
+        "name": "bottle",
+        "color": [0, 255, 10],
+        "id": 99,
+        "scene": "both"
+    }, {
+        "name": "buffet",
+        "color": [255, 112, 0],
+        "id": 100,
+        "scene": "both"
+    }, {
+        "name": "poster",
+        "color": [143, 255, 0],
+        "id": 101,
+        "scene": "both"
+    }, {
+        "name": "stage",
+        "color": [82, 0, 255],
+        "id": 102,
+        "scene": "both"
+    }, {
+        "name": "van",
+        "color": [163, 255, 0],
+        "id": 103,
+        "scene": "both"
+    }, {
+        "name": "ship",
+        "color": [255, 235, 0],
+        "id": 104,
+        "scene": "both"
+    }, {
+        "name": "fountain",
+        "color": [8, 184, 170],
+        "id": 105,
+        "scene": "both"
+    }, {
+        "name": "conveyer belt",
+        "color": [133, 0, 255],
+        "id": 106,
+        "scene": "both"
+    }, {
+        "name": "canopy",
+        "color": [0, 255, 92],
+        "id": 107,
+        "scene": "both"
+    }, {
+        "name": "washer",
+        "color": [184, 0, 255],
+        "id": 108,
+        "scene": "both"
+    }, {
+        "name": "plaything",
+        "color": [255, 0, 31],
+        "id": 109,
+        "scene": "both"
+    }, {
+        "name": "swimming pool",
+        "color": [0, 184, 255],
+        "id": 110,
+        "scene": "both"
+    }, {
+        "name": "stool",
+        "color": [0, 214, 255],
+        "id": 111,
+        "scene": "both"
+    }, {
+        "name": "barrel",
+        "color": [255, 0, 112],
+        "id": 112,
+        "scene": "both"
+    }, {
+        "name": "basket",
+        "color": [92, 255, 0],
+        "id": 113,
+        "scene": "both"
+    }, {
+        "name": "waterfall",
+        "color": [0, 224, 255],
+        "id": 114,
+        "scene": "both"
+    }, {
+        "name": "tent",
+        "color": [112, 224, 255],
+        "id": 115,
+        "scene": "both"
+    }, {
+        "name": "bag",
+        "color": [70, 184, 160],
+        "id": 116,
+        "scene": "both"
+    }, {
+        "name": "minibike",
+        "color": [163, 0, 255],
+        "id": 117,
+        "scene": "both"
+    }, {
+        "name": "cradle",
+        "color": [153, 0, 255],
+        "id": 118,
+        "scene": "both"
+    }, {
+        "name": "oven",
+        "color": [71, 255, 0],
+        "id": 119,
+        "scene": "both"
+    }, {
+        "name": "ball",
+        "color": [255, 0, 163],
+        "id": 120,
+        "scene": "both"
+    }, {
+        "name": "food",
+        "color": [255, 204, 0],
+        "id": 121,
+        "scene": "both"
+    }, {
+        "name": "step",
+        "color": [255, 0, 143],
+        "id": 122,
+        "scene": "both"
+    }, {
+        "name": "tank",
+        "color": [0, 255, 235],
+        "id": 123,
+        "scene": "both"
+    }, {
+        "name": "trade name",
+        "color": [133, 255, 0],
+        "id": 124,
+        "scene": "both"
+    }, {
+        "name": "microwave",
+        "color": [255, 0, 235],
+        "id": 125,
+        "scene": "both"
+    }, {
+        "name": "pot",
+        "color": [245, 0, 255],
+        "id": 126,
+        "scene": "both"
+    }, {
+        "name": "animal",
+        "color": [255, 0, 122],
+        "id": 127,
+        "scene": "both"
+    }, {
+        "name": "bicycle",
+        "color": [255, 245, 0],
+        "id": 128,
+        "scene": "both"
+    }, {
+        "name": "lake",
+        "color": [10, 190, 212],
+        "id": 129,
+        "scene": "both"
+    }, {
+        "name": "dishwasher",
+        "color": [214, 255, 0],
+        "id": 130,
+        "scene": "both"
+    }, {
+        "name": "screen",
+        "color": [0, 204, 255],
+        "id": 131,
+        "scene": "both"
+    }, {
+        "name": "blanket",
+        "color": [20, 0, 255],
+        "id": 132,
+        "scene": "both"
+    }, {
+        "name": "sculpture",
+        "color": [255, 255, 0],
+        "id": 133,
+        "scene": "both"
+    }, {
+        "name": "hood",
+        "color": [0, 153, 255],
+        "id": 134,
+        "scene": "both"
+    }, {
+        "name": "sconce",
+        "color": [0, 41, 255],
+        "id": 135,
+        "scene": "both"
+    }, {
+        "name": "vase",
+        "color": [0, 255, 204],
+        "id": 136,
+        "scene": "both"
+    }, {
+        "name": "traffic light",
+        "color": [41, 0, 255],
+        "id": 137,
+        "scene": "both"
+    }, {
+        "name": "tray",
+        "color": [41, 255, 0],
+        "id": 138,
+        "scene": "both"
+    }, {
+        "name": "ashcan",
+        "color": [173, 0, 255],
+        "id": 139,
+        "scene": "both"
+    }, {
+        "name": "fan",
+        "color": [0, 245, 255],
+        "id": 140,
+        "scene": "both"
+    }, {
+        "name": "pier",
+        "color": [71, 0, 255],
+        "id": 141,
+        "scene": "both"
+    }, {
+        "name": "crt screen",
+        "color": [122, 0, 255],
+        "id": 142,
+        "scene": "both"
+    }, {
+        "name": "plate",
+        "color": [0, 255, 184],
+        "id": 143,
+        "scene": "both"
+    }, {
+        "name": "monitor",
+        "color": [0, 92, 255],
+        "id": 144,
+        "scene": "both"
+    }, {
+        "name": "bulletin board",
+        "color": [184, 255, 0],
+        "id": 145,
+        "scene": "both"
+    }, {
+        "name": "shower",
+        "color": [0, 133, 255],
+        "id": 146,
+        "scene": "both"
+    }, {
+        "name": "radiator",
+        "color": [255, 214, 0],
+        "id": 147,
+        "scene": "both"
+    }, {
+        "name": "glass",
+        "color": [25, 194, 194],
+        "id": 148,
+        "scene": "both"
+    }, {
+        "name": "clock",
+        "color": [102, 255, 0],
+        "id": 149,
+        "scene": "both"
+    }, {
+        "name": "flag",
+        "color": [92, 0, 255],
+        "id": 150,
+        "scene": "both"
+    }]
+}
