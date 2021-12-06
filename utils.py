@@ -46,7 +46,9 @@ class GeneralConfig(object):
         self.classes = [TargetClass(c) for c in data['classes']]
         self.by_name = {cl.name: cl for cl in self.classes}
         self.palette = np.array([c.color for c in self.classes],dtype=np.uint8)
-        self.train_palette = np.concatenate([[0,0,0],self.palette],dtype=np.uint8).flatten()
+        self.train_palette = np.concatenate([
+            np.array([[0,0,0]],dtype=np.uint8),
+            self.palette],dtype=np.uint8).flatten()
         def path(p):
             return os.path.expanduser(os.path.join(project_root_folder,data[p]))
             

@@ -4,3 +4,12 @@ exploration
 ADE20K_2021_17_01
 *.pyc
 .~lock.*
+# Other stuff
+check_out_filters.json
+class_stats.ods
+classes_new
+data_stats.csv
+explore_ade20k.odt
+filters_2bg.json
+objects.txt
+scene_count.ods

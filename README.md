@@ -81,6 +81,7 @@ I created various scripts during the process, which make up most of this repo an
 -   `ade20k/additional_dataset_stats.py` takes the whole dataset and creates a pkl-file containing parents (with counts), objectcounts and scene presence for each ADE-class and number of images for each scene.
 -   `ade20k/make_summary.py` takes a set of ADE-classes and creates a HTML file with examples and statistics.
 -   `ade20k/objects.py` takes the classes_new file and lets one pick classes interactively, for which all possible parent classes are shown with the count of how often it is the case, and also how often the class appears in which scene.
+-   `ade20k/pick_snippets.py` picks a given number of random snippets from a dataset.
 
 TODO: one script for one/multiple examples of one/multiple ade-classes, optionally outlined
 and one script for stats.
@@ -93,6 +94,7 @@ and one script for stats.
 ## For processing ADE20k:
 
 -   `ade20k/annotate.py` uses general and ADE-specific configuration files and the whole ADE20k dataset to generate the re-annotated and filtered custom dataset. It also creates a `stats.pkl` file in the newly created dataset's folder, containing image-wise statistics (number of synonym- and full matches, scene, list of all matches)
+-   `ade20k/index_transform.py` applies a Lookup-Table to all indices in the dataset. Useful if changes to the indices want to be made without re-annotating everything (like "start at index 1" or "merge class X and Y")
 
 ## For visualizing segmentation results:
 
