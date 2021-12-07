@@ -96,9 +96,13 @@ and one script for stats.
 -   `ade20k/annotate.py` uses general and ADE-specific configuration files and the whole ADE20k dataset to generate the re-annotated and filtered custom dataset. It also creates a `stats.pkl` file in the newly created dataset's folder, containing image-wise statistics (number of synonym- and full matches, scene, list of all matches)
 -   `ade20k/index_transform.py` applies a Lookup-Table to all indices in the dataset. Useful if changes to the indices want to be made without re-annotating everything (like "start at index 1" or "merge class X and Y")
 
-## For visualizing segmentation results:
+## For running a trained algorithm:
 
 -   `segmentation/inference_test.py` is run on the GPU machine to select trained models from the work directory and let them process custom training images. 
+-   
+## For visualizing segmentation results:
+
+-   `segmentation/visualize.py` visualizes single inference results with a class legend and pointers to individual 'objects' in the scene.
 -   `segmentation/grid.py` can comparatively show inference results. It takes several folders as arguments and comparatively shows images of same name, which are present in all of them, side by side and in multiple rows. Can be used to quickly compare segmentation outputs of different algorithms.
 -   `segmentation/training_plot.py` visualizes overall training progress (IoU over time) and final class-wise performance (IoU) for multiple training processes given their log json-files.
 -   `segmentation/class_progression.py` draws the progression of the class-wise performance (IoU or Acc) over time for each class. The classes can be distributed to a 2D-grid of subplots or shown all in the same figure.
@@ -106,6 +110,9 @@ and one script for stats.
 
 ## For the other datasets:
 
--   `explore_labelmefacade.py` shows images from the dataset and their annotations and an overlay of both, as a grid, interactively.
--   `labelme_convert.py` converts the labelme dataset and puts the images into the extended dataset folders. Those are created by copying the outdoor and inout portions of the un-extended dataset, if they are not present yet.
--   `cmp_convert.py` converts the cmp dataset and puts the images into the extended dataset folders. Those are created by copying the outdoor and inout portions of the un-extended dataset, if they are not present yet.
+-   `other_datasets/explore_labelmefacade.py` shows images from the dataset and their annotations and an overlay of both, as a grid, interactively.
+-   `other_datasets/labelme_convert.py` converts the labelme dataset and puts the images into the extended dataset folders. Those are created by copying the outdoor and inout portions of the un-extended dataset, if they are not present yet.
+-   `other_datasets/cmp_convert.py` converts the cmp dataset and puts the images into the extended dataset folders. Those are created by copying the outdoor and inout portions of the un-extended dataset, if they are not present yet.
+
+## Others:
+-   `class_table.py` creates a HTML file with a table of all classes, their scenes and their colors.

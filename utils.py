@@ -3,7 +3,7 @@ If a different configuration file is required, just use conf = GeneralConfig(fil
 import json
 import os
 import shutil
-from typing import List
+from typing import List, Set
 
 import numpy as np
 
@@ -88,7 +88,17 @@ except FileNotFoundError:
 #######################################################
 # Command line utils
 
-def choice(l:List,indices:bool=False, text:str="Choice: ",displaylist:List[str]=None):
+console_colors = {
+    "white" : '\033[0m',  # white (normal)
+    "red" : '\033[31m', # red
+    "green" : '\033[32m', # green
+    "orange" : '\033[33m', # orange
+    "blue" : '\033[34m', # blue
+    "purple" : '\033[35m', # purple
+    "gray" : '\033[90m' # Gray
+}
+
+def choice(l:List,indices:bool=False, text:str="Choice: ",displaylist:List[str]=None,grayout:Set=None):
     """Displays a given list in the command-line, each element with its index in the list,
     and awaits a choice by the user (an index). Returns the element, or its index if indices=True
 
@@ -101,8 +111,14 @@ def choice(l:List,indices:bool=False, text:str="Choice: ",displaylist:List[str]=
     Returns:
         An item from l or its index in l
     """
-    for i,f in enumerate(l):
-        print(f"[{i:2d}] {f}")
+    if grayout is None:
+        for i,f in enumerate(l):
+            print(f"[{i:2d}] {f}")
+    else:
+        for i,f in enumerate(l):
+            s=""
+            if f in grayout: s = console_colors['gray']
+            print(f"{s}[{i:2d}] {f}{console_colors['white']}")
     try:
         ind = int(input(text))
         if indices: return ind
