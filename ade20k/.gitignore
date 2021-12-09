@@ -1,13 +1,12 @@
 output
 exploration
 .vscode
-ADE20K_2021_17_01
+ade_stats.pkl
 *.pyc
 .~lock.*
 # Other stuff
 check_out_filters.json
 class_stats.ods
-classes_new
 data_stats.csv
 explore_ade20k.odt
 filters_2bg.json
