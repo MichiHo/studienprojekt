@@ -20,7 +20,7 @@ out_folder = os.path.join(foldername,"shapes")
 if not os.path.exists(out_folder):
     os.makedirs(out_folder)
 
-ade_index = utils.adeindex.load()
+ade_index = utils.AdeIndex.load()
 
 # classes_colors = [
 #     ("windowpane, window",None,(0,255,0),None),
@@ -44,8 +44,8 @@ if len(sys.argv)>=3:
 
 # convert to indices
 classes_colors = [
-    [utils.adeindex.class_index(ade_index,name),
-    utils.adeindex.class_index(ade_index,parent) if parent is not None else None,
+    [utils.AdeIndex.class_index(ade_index,name),
+    utils.AdeIndex.class_index(ade_index,parent) if parent is not None else None,
     c,t] for name,parent,c,t in classes_colors
 ]
 
@@ -57,8 +57,8 @@ for f in files:
     if f.endswith(".json"):
         filename = f[:-5]
         img = cv2.imread(os.path.join(foldername,filename+".jpg"))
-        img_data = utils.imgdata.load(foldername,filename)
-        img = utils.image.class_outlines(img,img_data,classes_colors)
+        img_data = utils.ImgData.load(foldername,filename)
+        img = utils.Image.class_outlines(img,img_data,classes_colors)
         if img.shape[0] > img.shape[1]:
             print("shape 1 > 1 for",filename)
         #ax[i % 2][int(i/2)].imshow(img)

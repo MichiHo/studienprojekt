@@ -17,8 +17,8 @@ import ade_utils as utils
 #7 Is part of
 
 #objects = utils.objects.load()
-ade_index = utils.adeindex.load()
-objects2 = utils.ade_stats.load()
+ade_index = utils.AdeIndex.load()
+objects2 = utils.AdeStats.load()
 
 
 #print(objects.loc['wall'])
@@ -48,7 +48,7 @@ while True:
         if len(index) == 0: continue
         index = int(index)
         name = guesses[index]
-        class_id = utils.adeindex.class_index(ade_index,name)
+        class_id = utils.AdeIndex.class_index(ade_index,name)
     
     d = objects2['classes'][class_id]
     print()

@@ -19,7 +19,7 @@ args = parser.parse_args()
 
 args.classnames = colon_separated(args.classnames)
 
-ade_index = utils.adeindex.load()
+ade_index = utils.AdeIndex.load()
 
 if not os.path.exists(args.out_dir):
     os.makedirs(args.out_dir)
@@ -28,22 +28,22 @@ if not os.path.exists(args.out_dir):
 for i,cname in enumerate(args.classnames):
     print(f"[{i:4d}/{len(args.classnames)}] ",end="")
     try:
-        class_id = utils.adeindex.class_index(ade_index,cname)
+        class_id = utils.AdeIndex.class_index(ade_index,cname)
     except ValueError:
         print("No class of name",cname,"skipping.")
         continue
     print(f"{cname} (#{class_id})")
-    iterr = utils.adeindex.images_with_class(ade_index,class_id,count=args.num)
+    iterr = utils.AdeIndex.images_with_class(ade_index,class_id,count=args.num)
     if args.num > 1: iterr = tqdm(iterr)
     for img_id in iterr: 
         out_name = img_data['filename']
         if args.num == 1: out_name = f"{cname}_" + out_name
         
         if args.outline:
-            img, img_data = utils.adeindex.load_img(ade_index,img_id,True)
-            img = utils.image.class_outlines(img,img_data,[[class_id,None,(255,0,0),4]])
+            img, img_data = utils.AdeIndex.load_img(ade_index,img_id,True)
+            img = utils.Images.class_outlines(img,img_data,[[class_id,None,(255,0,0),4]])
             cv2.imwrite(os.path.join(args.out_dir,cname if args.num > 1 else "",out_name),img)
         else:
-            img = utils.adeindex.load_img(ade_index,img_id,False)
+            img = utils.AdeIndex.load_img(ade_index,img_id,False)
             cv2.imwrite(os.path.join(args.out_dir,cname if args.num > 1 else "",out_name),img)
     

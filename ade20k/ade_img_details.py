@@ -1,6 +1,6 @@
 import ade_utils as utils
 
-ade_index = utils.adeindex.load()
+ade_index = utils.AdeIndex.load()
 
 
 while True:
@@ -13,4 +13,4 @@ while True:
     for i in range(utils.num_classes):
         c = ade_index['objectPresence'][i,imgid]
         if c > 0:
-            print(f"   {c:3}x {utils.adeindex.classname(ade_index,i)}")
+            print(f"   {c:3}x {utils.AdeIndex.classname(ade_index,i)}")

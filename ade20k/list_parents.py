@@ -21,12 +21,12 @@ args = parser.parse_args()
 
 args.classnames = colon_separated(args.classnames)
 
-data = utils.adeindex.load()
+data = utils.AdeIndex.load()
 
 class_ids = []
 for classname in args.classnames:
     try:
-        class_id = utils.adeindex.class_index(data,classname)
+        class_id = utils.AdeIndex.class_index(data,classname)
         class_ids.append(class_id)
     except ValueError:
         print(f"No class named {classname}!")
@@ -53,14 +53,14 @@ for i in tqdm(range(utils.num_images),desc="Analyzing images"):
             if data['objectPresence'][class_id,i] > 0:
                 results[class_id]['imgs'] += 1
                 
-        imgdata = utils.imgdata.load(data['folder'][i],os.path.splitext(data['filename'][i])[0])
+        imgdata = utils.ImgData.load(data['folder'][i],os.path.splitext(data['filename'][i])[0])
         for obj in imgdata['object']:
             class_id = obj['name_ndx']
             if not class_id in class_ids: continue
             if obj['parts']['ispartof'] == []:
                 result[class_id]['no_parent'] += 1
             else:
-                parent = utils.imgdata.find_obj_by_id(imgdata,obj['parts']['ispartof'])
+                parent = utils.ImgData.find_obj_by_id(imgdata,obj['parts']['ispartof'])
                 result[class_id]['with_parent'] += 1
                 if not parent['name'] in parents:
                     result[class_id]['parents'][parent['name']] = 1

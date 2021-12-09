@@ -44,7 +44,7 @@ parser.add_argument('--confirm', default=True, action=argparse.BooleanOptionalAc
 args = parser.parse_args()
 
 # Load configuration and index data
-ade_index = utils.adeindex.load()
+ade_index = utils.AdeIndex.load()
 ade_conf = utils.AdeConfiguration.load(ade_index,args.ade_conf)
 
 # Check output folder
@@ -105,7 +105,7 @@ for img_index in range(utils.num_images):
         
         filename = ade_index['filename'][img_index][:-4]
         folder = ade_index['folder'][img_index]
-        img_data = utils.imgdata.load(folder,filename)
+        img_data = utils.ImgData.load(folder,filename)
         scene = img_data['scene'][0]
         
         if not scene in {"indoor","outdoor"} : 
@@ -120,7 +120,7 @@ for img_index in range(utils.num_images):
             stats['skipped_trainval'] += 1
             continue
         
-        result = utils.image.annotate(
+        result = utils.Images.annotate(
             ade_conf,filename,folder,img_data=img_data,
             detection_thres=ade_conf.detection_thres,stats=True)
         if result is None:
@@ -155,7 +155,7 @@ for img_index in range(utils.num_images):
         })
         
         if imgs_loaded - 1 % args.snippet_every == 0 and imgs_loaded/args.snippet_every < args.snippet_count:
-            rgb_img = utils.adeindex.load_img(ade_index,img_index)
+            rgb_img = utils.AdeIndex.load_img(ade_index,img_index)
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             fig,ax = plt.subplots(nrows=2,ncols=1,sharex=True,figsize=(8,10))
             ax[0].imshow(img)

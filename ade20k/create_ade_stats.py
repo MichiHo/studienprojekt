@@ -16,7 +16,6 @@ import time
 import argparse
 
 import numpy as np
-import pandas as pd
 from tqdm import tqdm
 
 import ade_utils as utils
@@ -27,7 +26,7 @@ parser.add_argument('--out-path', type=path_arg, default=conf.ade_stats_path,
     help='path of the output pkl file. (default from configuration)')
 args = parser.parse_args()
 
-ade_index = utils.adeindex.load()
+ade_index = utils.AdeIndex.load()
 
 start_time = time.time()
 
@@ -36,8 +35,7 @@ missing_parents = 0
 scenes = dict()
 
 for img_index in tqdm(range(utils.num_images)):
-    print(f"{img_index:5} {utils.progress_bar(img_index,utils.num_images,length=30)}\r",end="")
-    imgdata = utils.imgdata.load(ade_index['folder'][img_index],ade_index['filename'][img_index][:-4])
+    imgdata = utils.ImgData.load(ade_index['folder'][img_index],ade_index['filename'][img_index][:-4])
     scene = imgdata['scene'][0]
     if not scene in scenes: scenes[scene] = 0
     scenes[scene] += 1
@@ -60,7 +58,7 @@ for img_index in tqdm(range(utils.num_images)):
         classes[class_id]['scenes'][scene] += 1
             
         if type(obj['parts']['ispartof']) == int:
-            parent = utils.imgdata.find_obj_by_id(imgdata,obj['parts']['ispartof'])
+            parent = utils.ImgData.find_obj_by_id(imgdata,obj['parts']['ispartof'])
             if not parent:
                 missing_parents += 1
                 continue

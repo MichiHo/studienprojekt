@@ -72,9 +72,9 @@ class AdeTargetClass(object):
         if type(json['synonyms']) == list:
             for syn in json['synonyms']:
                 if type(syn) == str:
-                    synonyms[adeindex.class_index(ade_index, syn)] = {}
+                    synonyms[AdeIndex.class_index(ade_index, syn)] = {}
                 elif type(syn) == dict:
-                    synonyms[adeindex.class_index(ade_index, syn['name'])] = {adeindex.class_index(
+                    synonyms[AdeIndex.class_index(ade_index, syn['name'])] = {AdeIndex.class_index(
                         ade_index, par) for par in syn['parents']}
                 else:
                     raise AttributeError()
@@ -168,7 +168,7 @@ class AdeTargetClass(object):
             #check parent class
             else: 
                #print(" has parent",end="")
-                parent = imgdata.find_obj_by_id(img_data,obj['parts']['ispartof'])
+                parent = ImgData.find_obj_by_id(img_data,obj['parts']['ispartof'])
                 if parent['name_ndx'] in parents: 
                     #print(" and its good!")
                     result.append(obj)
@@ -255,7 +255,7 @@ class AdeConfiguration(object):
                 for cl in self.content_classes])
 
 
-class image(object):
+class Images(object):
     """Utils for dealing with image data."""
     @staticmethod
     def instance_outline(img, instance_data, color, thickness=None, lineType=None, shift=None):
@@ -294,7 +294,7 @@ class image(object):
 
         for inst in highlight_instances:
             col = (inst['color'][2], inst['color'][1], inst['color'][0])
-            img = image.instance_outline(img, imgdata.find_obj_by_id(
+            img = Images.instance_outline(img, ImgData.find_obj_by_id(
                 img_data, inst['id']), col, inst['thickness'])
 
         for classname, partof, col, thickness in classes_colors:
@@ -307,11 +307,11 @@ class image(object):
                     continue
                 if partof and type(o['parts']['ispartof']) == int:
                     parent_id = o['parts']['ispartof']
-                    parent = imgdata.find_obj_by_id(img_data, parent_id)
+                    parent = ImgData.find_obj_by_id(img_data, parent_id)
                     if parent['name'] != partof:
                         continue
                 count += 1
-                img = image.instance_outline(img, o, col, thickness)
+                img = Images.instance_outline(img, o, col, thickness)
 
             if not classname in counts:
                 counts[classname] = count
@@ -358,7 +358,7 @@ class image(object):
         """
         
         if img_data is None:
-            img_data = imgdata.load(folder,filename)
+            img_data = ImgData.load(folder,filename)
         
         # Look for all matches first. If none, abort.
         matches = []
@@ -405,7 +405,7 @@ class image(object):
         else: return img
  
   
-class adeindex(object):
+class AdeIndex(object):
     """Methods for loading and handling the index pkl file
 
     - filename: 
@@ -487,7 +487,7 @@ class adeindex(object):
         foldername = ade_index['folder'][img_index]
         img = cv2.imread(os.path.join(project_root_folder,foldername, filename+".jpg"))
         if load_imgdata:
-            img_data = imgdata.load(foldername, filename)
+            img_data = ImgData.load(foldername, filename)
             return (img, img_data)
         else:
             return img
@@ -608,7 +608,7 @@ class adeindex(object):
         for i in range(start_index, num_images):
             if random: i2 = permutation[i]
             else: i2 = i
-            if adeindex.matches_all_classes(ade_index, class_ids, i2):
+            if AdeIndex.matches_all_classes(ade_index, class_ids, i2):
                 if found >= count:
                     return
                 found += 1
@@ -621,15 +621,15 @@ class adeindex(object):
     @staticmethod
     def classnames(ade_index,ids):
         for i in ids:
-            yield adeindex.classname(ade_index,i)
+            yield AdeIndex.classname(ade_index,i)
 
 
 imgdata_encs = {}
-class imgdata(object):
+class ImgData(object):
     """Methods for handling the annotations json of a single image"""
     @staticmethod
     def loadi(ade_index : dict,img_index : int):
-        return imgdata.load(ade_index['folder'][img_index],
+        return ImgData.load(ade_index['folder'][img_index],
             os.path.splitext(ade_index['filename'][img_index])[0])
     
     @staticmethod
@@ -697,7 +697,7 @@ class imgdata(object):
           
            
 
-class ade_stats(object):
+class AdeStats(object):
     """Methods for loading and dealing with the new ade_stats.pkl file, generated from the
     per-image json files.
 
@@ -721,7 +721,7 @@ class ade_stats(object):
         return classes
 
 
-class plots(object):
+class Plots(object):
 
     @staticmethod
     def parent_stats(ade_index, classes : dict, class_id : int, save_path : str):

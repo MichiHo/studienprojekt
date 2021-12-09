@@ -40,15 +40,15 @@ if (len(args.classnames) + len(args.parents) + len(args.combinations)) == 0:
     exit()
 
 print("Loading data...")
-ade_index = utils.adeindex.load()
-ade_stats = utils.ade_stats.load()
+ade_index = utils.AdeIndex.load()
+ade_stats = utils.AdeStats.load()
 print("-> done")
 
 class_color_dict = set()
 args.classnames = colon_separated(args.classnames)
 for i,cname in enumerate(args.classnames):
     try:
-        ind = utils.adeindex.class_index(ade_index,cname)
+        ind = utils.AdeIndex.class_index(ade_index,cname)
         class_color_dict[ind] = None
         args.classnames[i] = (ind,cname)
     except ValueError:
@@ -59,7 +59,7 @@ args.combinations = [colon_separated(comb) for comb in args.combinations]
 for i,combi in enumerate(args.combinations):
     for j,cname in enumerate(combi):
         try:
-            ind = utils.adeindex.class_index(ade_index,cname)
+            ind = utils.AdeIndex.class_index(ade_index,cname)
             class_color_dict[ind] = None
             args.combinations[i][j] = (ind,cname)
         except ValueError:
@@ -73,7 +73,7 @@ for i,combi in enumerate(args.parents):
             if cname.upper() == "NONE" and j > 0:
                 args.parents[i][j] = (-1,"NONE")
             else:
-                ind = utils.adeindex.class_index(ade_index,cname)
+                ind = utils.AdeIndex.class_index(ade_index,cname)
                 class_color_dict[ind] = None
                 args.parents[i][j] = (ind,cname)
         except ValueError:
@@ -87,7 +87,7 @@ cmap = plt.get_cmap("Dark2")
 classes_colors = []
 legend = ""
 for i,name in enumerate(class_color_dict.keys()):
-    n_id = utils.adeindex.class_index(ade_index,name)
+    n_id = utils.AdeIndex.class_index(ade_index,name)
     color = cmap(i)
     class_color_dict[name] = color
     classes_colors.append([n_id,None,color,None])
@@ -115,7 +115,7 @@ with HtmlContext(args.out_dir,"ADE20k Summary") as w:
             # Create barplot
             barplot_name = f"{classname}_barplot.png"
             barplot_path = os.path.join(img_folder,barplot_name)
-            utils.plots.parent_stats(ade_index,ade_stats,class_index,barplot_path)
+            utils.Plots.parent_stats(ade_index,ade_stats,class_index,barplot_path)
 
             # Some infos
             w(f"<div class='section'><h1><span class='box' style='background-color:{html.color(outline_color)}'></span>{classname}</h1>")
@@ -132,16 +132,16 @@ with HtmlContext(args.out_dir,"ADE20k Summary") as w:
             w(f'''<div class='examples'>
             <h2>Examples{legend}</h2>
             <div class='img-grid grid' data-masonry='{{ "itemSelector": ".grid-item", "columnWidth": 100, "gutter": 3 }}'>''')
-            for img_index in utils.adeindex.images_with_class(ade_index,class_index,args.count,random=True):
+            for img_index in utils.AdeIndex.images_with_class(ade_index,class_index,args.count,random=True):
                 filename = ade_index['filename'][img_index][:-4]
                 foldername = ade_index['folder'][img_index]
                 out_name = f"{filename}_{classname}_outlines.jpg"
                 out_path = os.path.join(img_folder,out_name)
                 img = cv2.imread(os.path.join(foldername,filename+".jpg"))
-                img_data = utils.imgdata.load(foldername,filename)
+                img_data = utils.ImgData.load(foldername,filename)
                 # Highlight this class
                 classes_colors.append((class_index,None,class_color_dict[class_index],8 ))
-                img,obj_counts = utils.image.class_outlines(img,img_data,classes_colors,False,True)
+                img,obj_counts = utils.Images.class_outlines(img,img_data,classes_colors,False,True)
                 classes_colors.pop()
                 cv2.imwrite(out_path,img)
                 w(f'''<div title="{img_data['scene']}" class='grid-item'><p class="scene">{img_data['scene']}</p><img {'class="portrait" ' if img.shape[0] > img.shape[1] else ""} src='{os.path.join('imgs',out_name)}'></div>''')
@@ -159,14 +159,14 @@ with HtmlContext(args.out_dir,"ADE20k Summary") as w:
             w(f'''<div class='examples'>
             <h2>{title} {legend}</h2>
             <div class='img-grid grid' data-masonry='{{ "itemSelector": ".grid-item", "columnWidth": 100, "gutter": 3 }}'>''')
-            for img_index in utils.adeindex.images_with_classes(ade_index,combi_indices,12,0):
+            for img_index in utils.AdeIndex.images_with_classes(ade_index,combi_indices,12,0):
                 filename = ade_index['filename'][img_index][:-4]
                 foldername = ade_index['folder'][img_index]
                 out_name = f"{filename}_combi{i}_outlines.jpg"
                 out_path = os.path.join(img_folder,out_name)
                 img = cv2.imread(os.path.join(foldername,filename+".jpg"))
-                img_data = utils.imgdata.load(foldername,filename)
-                img,obj_counts = utils.image.class_outlines(img,img_data,classes_colors,False,True)
+                img_data = utils.ImgData.load(foldername,filename)
+                img,obj_counts = utils.Images.class_outlines(img,img_data,classes_colors,False,True)
                 cv2.imwrite(out_path,img)
                 w(f'''<div title="{img_data['scene']}" class='grid-item'><p class="scene">{img_data['scene']}</p><img {'class="portrait" ' if img.shape[0] > img.shape[1] else ""} src='{os.path.join('imgs',out_name)}'></div>''')
             w("</div></div>")
@@ -193,15 +193,15 @@ with HtmlContext(args.out_dir,"ADE20k Summary") as w:
             
             print("-> Parents =",parents_left,"                                             ")
             
-            for img_index in utils.adeindex.images_with_class(ade_index,child_class_id):
+            for img_index in utils.AdeIndex.images_with_class(ade_index,child_class_id):
                 #print(f"   IMG {img_index}",end="\r")
                 filename = ade_index['filename'][img_index][:-4]
                 foldername = ade_index['folder'][img_index]
-                img_data = utils.imgdata.load(foldername,filename)
-                for child_instance in utils.imgdata.objects_of_class(img_data,child_class_id):
+                img_data = utils.ImgData.load(foldername,filename)
+                for child_instance in utils.ImgData.objects_of_class(img_data,child_class_id):
                     parent_id = child_instance['parts']['ispartof']
                     if type(parent_id) == int:
-                        parent_instance = utils.imgdata.find_obj_by_id(img_data,parent_id)
+                        parent_instance = utils.ImgData.find_obj_by_id(img_data,parent_id)
                         parent_class_id = parent_instance['name_ndx']
                     else:
                         parent_class_id = -1
@@ -216,7 +216,7 @@ with HtmlContext(args.out_dir,"ADE20k Summary") as w:
                         out_name = f"{filename}_{child_class_name}_of_{parent_class}_outlines.jpg"
                         out_path = os.path.join(img_folder,out_name)
                         img = cv2.imread(os.path.join(foldername,filename+".jpg"))
-                        img = utils.image.class_outlines(img,img_data,classes_colors,legend=False,highlight_instances=[
+                        img = utils.Images.class_outlines(img,img_data,classes_colors,legend=False,highlight_instances=[
                             { 
                                 "id": parent_id,
                                 "color": parent_color,

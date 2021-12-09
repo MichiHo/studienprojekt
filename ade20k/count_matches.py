@@ -4,7 +4,7 @@ from PIL import Image
 
 import ade_utils as utils
 
-ade_index = utils.adeindex.load()
+ade_index = utils.AdeIndex.load()
 conf = utils.AdeConfiguration.load(ade_index,"filters.json")
 
 matches_hist = dict()
