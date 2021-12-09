@@ -6,12 +6,10 @@ including the configuration of filters. The contents are:
 -   image (statis): Utilities for image manipulation
 -   adeindex  (static): Utilities for querying the index pkl file
 -   imgdata (static): Utilities for querying the json of a single image
--   classes_new (static): Utilities for querying the new stats file generated from ADE20k
+-   ade_stats (static): Utilities for querying the new stats file generated from ADE20k
 -   plots (static): Plotting utils
 -   html : A ContextManager class to open and write a html summary
 """
-
-from __future__ import annotations
 
 import json
 import os
@@ -189,7 +187,7 @@ class AdeConfiguration(object):
     at least one target_class.
     """
     @staticmethod
-    def load(ade_index : dict, filepath : str = general_conf.annotate_filers_conf) -> AdeConfiguration:
+    def load(ade_index : dict, filepath : str = general_conf.annotate_filers_conf):
         with open(filepath, "r") as f:
             json = json.load(f)
             
@@ -265,13 +263,12 @@ class image(object):
             [instance_data['polygon']['x'][i], instance_data['polygon']['y'][i]]
             for i in range(len(instance_data['polygon']['x']))], np.int32)
         points = points.reshape((-1, 1, 2))
-        cv2.polylines(img, [points], True, color,
-                      thickness=thickness, lineType=lineType, shift=shift)
-        return img
+        return cv2.polylines(img, [points], True, color, thickness=thickness, lineType=lineType, shift=shift)
 
     @staticmethod
     def class_outlines(img, img_data, classes_colors, legend=True, add_info=False, highlight_instances=[]):
-        """Create image with outlines of class instances of given classes
+        """Create image with outlines of class instances of given classes. The given classes are painted
+        in that order.
 
         Args:
             in_folder (str): Folder containing the jpg and json file
@@ -297,7 +294,7 @@ class image(object):
 
         for inst in highlight_instances:
             col = (inst['color'][2], inst['color'][1], inst['color'][0])
-            image.instance_outline(img, imgdata.find_obj_by_id(
+            img = image.instance_outline(img, imgdata.find_obj_by_id(
                 img_data, inst['id']), col, inst['thickness'])
 
         for classname, partof, col, thickness in classes_colors:
@@ -314,7 +311,7 @@ class image(object):
                     if parent['name'] != partof:
                         continue
                 count += 1
-                image.instance_outline(img, o, col, thickness)
+                img = image.instance_outline(img, o, col, thickness)
 
             if not classname in counts:
                 counts[classname] = count
@@ -567,7 +564,7 @@ class adeindex(object):
         return True
 
     @staticmethod
-    def images_with_class(ade_index, class_id, count=num_images, start_index=0):
+    def images_with_class(ade_index, class_id, count=num_images, start_index=0, random=False):
         """Iterator over all image IDs of images containing the given class
 
         Args:
@@ -575,27 +572,47 @@ class adeindex(object):
             class_id (int): ID of the class to search for
             count (int, optional): Number of images to yield at max. Defaults to num_images.
             start_index (int, optional): Index to start the search from. Defaults to 0.
+            random (bool): Whether to randomize the order of images. Default: False
 
         Yields:
             int: ID of images containing the given class.
         """
         found = 0
+        if random: permutation = np.random.permutation(num_images)
         for i in range(start_index, num_images):
-            if ade_index['objectPresence'][class_id, i] > 0:
+            if random: i2 = permutation[i]
+            else: i2 = i
+            
+            if ade_index['objectPresence'][class_id, i2] > 0:
                 if found >= count:
                     return
                 found += 1
-                yield i
+                yield i2
 
     @staticmethod
-    def images_with_classes(ade_index, class_ids, count, start_index=0):
+    def images_with_classes(ade_index, class_ids, count=num_images, start_index=0, random=False):
+        """Iterator over all image IDs of images containing all given classes
+
+        Args:
+            ade_index (dict): Index dict
+            class_id (List[int]): IDs of the classes to search for
+            count (int, optional): Number of images to yield at max. Defaults to num_images.
+            start_index (int, optional): Index to start the search from. Defaults to 0.
+            random (bool): Whether to randomize the order of images. Default: False
+
+        Yields:
+            int: ID of images containing all of the given classes.
+        """
         found = 0
+        if random: permutation = np.random.permutation(num_images)
         for i in range(start_index, num_images):
-            if adeindex.matches_all_classes(ade_index, class_ids, i):
+            if random: i2 = permutation[i]
+            else: i2 = i
+            if adeindex.matches_all_classes(ade_index, class_ids, i2):
                 if found >= count:
                     return
                 found += 1
-                yield i
+                yield i2
 
     @staticmethod
     def classname(ade_index,index):
@@ -680,21 +697,25 @@ class imgdata(object):
           
            
 
-class classes_new(object):
-    """Methods for loading and dealing with the new classes_new.pkl file, generated from the
+class ade_stats(object):
+    """Methods for loading and dealing with the new ade_stats.pkl file, generated from the
     per-image json files.
 
-    The loaded object has integer keys for the class-ids and contains:
-    - 'parents' : a dict mapping class-ids (or -1 for NONE) to the number this parent-class is assumed
-    - 'object_count' : number of object instances found 
-    - 'name' : name of the class 
+    -   classes: contains for each class (indexed by integer class-id):
+        -   name
+        -   scenes: scenes it is present in, 
+        -   parents: a dict mapping class-ids (or -1 for NONE) to the number this parent-class is assumed
+        -   object_count: total number of class instances in the dataset
+        -   image_count: number of images containing this class
+    -   scenes: dict of scene-names mapped to image count. only the first element of each images 'scene'
+        attribute is used, which mostly contains either 'indoor' or 'outdoor'
     """
     
     path = ""
 
     @staticmethod
     def load():
-        with open("classes_new.pkl", "rb") as pkl_file:
+        with open("ade_stats.pkl", "rb") as pkl_file:
             classes = pickle.load(pkl_file)
 
         return classes
@@ -712,63 +733,3 @@ class plots(object):
             classes[class_id]['parents'].values())
         plt.savefig(save_path)
 
-
-class html(object):
-    """ContextManager class opening a file and writing html to it. Automatically creates the
-    header and opens and closes the <body> tag. The returned object is callable with a str param
-    which will be appended inside the <body> tag.
-    """
-
-    def __enter__(self):
-        folder = os.path.dirname(self.filepath)
-        if not os.path.exists(folder):
-            os.makedirs(folder)
-        self.f = open(self.filepath, "w")
-
-        self.__call__(f'''<!doctype html><html>
-        <head>
-        <meta charset="utf-8">
-        <title>{self.title}</title>
-        <link href="../style.css" rel="stylesheet">
-        <script src="../masonry.pkgd.min.js"></script>
-        </head>
-        <body>''')
-        return self
-
-    def __exit__(self, exc_type, exc_value, traceback):
-        self.__call__("</body></html>")
-        self.f.close()
-
-    def __init__(self, filepath : str, title : str = "ADE20k"):
-        """Construct
-
-        Args:
-            filepath (str): Path to the file to open and write to.
-            title (str, optional): Title of the page. Defaults to "ADE20k".
-        """
-        self.filepath = filepath
-        self.title = title
-
-    def __call__(self, string : str):
-        """Append text inside the <body> tag
-
-        Args:
-            string (str): Text to insert
-        """
-        self.f.write(string)
-    
-    @staticmethod
-    def color(cl):
-        """Returns the given color codes as css rgb-string
-
-        Args:
-            cl (List[int]): List of R,G,B ints (0-255)
-
-        Returns:
-            str: rgb(r,g,b) like string
-        """
-        return f"rgb({cl[0]},{cl[1]},{cl[2]})"
-        
-    @staticmethod
-    def item(title,val):
-        return f"<p class='item{' numeric-item' if isinstance(val,(int,float,complex)) else ''}'><span class='title'>{title}</span><span class='val'>{val}</span></p>"

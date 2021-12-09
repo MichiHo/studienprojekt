@@ -1,4 +1,4 @@
-"""Pick random snippets from a segmentation dataset. Required are a folder each for images (.jpg) and annotations (.png), with images of same name except the ending. It shuffles the list of images and stores the first N into an output folder."""
+"""Pick random snippets from a segmentation dataset. Required are a folder each for images (.jpg) and annotations (.png) (both can be the same), with images of same name except the ending. It shuffles the list of images and stores the first N into an output folder."""
 import argparse
 import os
 import random

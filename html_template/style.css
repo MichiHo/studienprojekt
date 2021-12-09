@@ -1,0 +1,125 @@
+body {
+  background-color: lightgray;
+  padding: 0px;
+  margin: 0px;
+  font-family: sans-serif;
+  color: gray;
+}
+p {
+  margin: 0;
+}
+.section > * {
+  padding: 10px;
+  margin: 0px 10px 3px 10px;
+}
+.section > div {
+  background-color: white;
+}
+.section > div:first-of-type {
+  border-radius: 10px 10px 0px 0px;
+}
+.section > div:last-of-type {
+  border-radius: 0px 0px 10px 10px;
+}
+h1,
+.part{
+  margin-top: 80px;
+  font-size: 40px;
+  color: black;
+}
+h2 {
+  color: black;
+  margin: 0px 0px 10px 0px;
+}
+.img-grid {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.part {
+  background: black;
+  color: lightgray;
+  margin-left: 0px;
+  margin-right: 0px;
+  text-align: center;
+  padding-bottom: 5px;
+}
+.subtext {
+  text-align: left;
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 5px;
+  color: gray;
+  background: white;
+  margin: 5px;
+}
+.grid-item {
+  margin-bottom: 6px;
+}
+img {
+  max-width: 800px;
+}
+.img-grid img {
+  max-width: 300px;
+}
+.scene {
+  top: 0px;
+  margin: 0;
+  font-size: 10px;
+}
+.box {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  margin-right: 20px;
+  border: black 2px solid;
+}
+.item {
+  display: table-row;
+}
+.item > * {
+  display: table-cell;
+  
+  padding-bottom: 8px;
+}
+.title {
+  font-weight: bold;
+}
+
+.inline-legend-item {
+  margin-left: 5px;
+  font-weight: normal;
+  color: gray;
+  font-style: italic;
+  padding-right: 5px;
+  border-right: solid 1px lightgray;
+}
+.header-info {
+  font-weight: normal;
+  border-left: solid 1px gray;
+  margin-left: 10px;
+  padding-left: 5px;
+}
+.synonyms {
+}
+.synonym {
+  background: lightgray;
+  margin: 2px;
+  padding: 2px;
+  width: 197px;
+}
+.synonym > h2 {
+  font-size: 12px;
+}
+.parents {
+  font-size: 9px;
+}
+.parents > p {
+  margin: 0;
+}
+.parents > p:nth-child(2n) {
+  background: rgba(255,255,255,0.4)
+}

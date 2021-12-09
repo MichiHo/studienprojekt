@@ -18,7 +18,7 @@ import ade_utils as utils
 
 #objects = utils.objects.load()
 ade_index = utils.adeindex.load()
-objects2 = utils.classes_new.load()
+objects2 = utils.ade_stats.load()
 
 
 #print(objects.loc['wall'])

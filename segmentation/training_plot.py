@@ -39,30 +39,18 @@ Log File structure:
 
 
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument('logfiles', type=path_arg, nargs='*', default=None, 
-    help='the training log json to visualize.')
-parser.add_argument('--log-dir', type=path_arg, default=conf.segmentation_logs_path,
-    help='the folder to look for logfiles in when interactive. (default from configuration)')
-parser.add_argument('--plots-dir', type=path_arg, default=conf.segmentation_plots_path,
-    help='the folder to store generated plots into. Will be created if not existent. No files are overwritten. (default from configuration)')
-parser.add_argument('--save-plots', default=True, action=argparse.BooleanOptionalAction, 
-    help='whether to save plots as svg into a folder.')
-parser.add_argument('--epochs', default=False, action=argparse.BooleanOptionalAction, 
-    help='whether to use epochs instead of iterations as time value.')
-parser.add_argument('--mode', default='joint', choices=['joint','separate'],
-    help='whether to display multiple training logs in one joint plot or in separate plots. (default: joint)')
-parser.add_argument('--class-property', default="IoU", choices=['IoU','Acc'], 
-    help='the property displayed in the class-wise plot. (default: IoU)')
-parser.add_argument('--global-property', default="mIoU", choices=['mIoU','aAcc','mAcc','lr'], 
-    help='the property displayed over time in the total plot. (default: mIoU)')
-parser.add_argument('--second-global-property', default=None, choices=['mIoU','aAcc','mAcc','lr'], 
-    help='which other property to plot along the global-property on the left plot. (default: None)')
-parser.add_argument('--colors',type=str,default=["red","blue","green","orange","purple","pink"],nargs='+',
-    help='colors to assign to the training logs in that order.')
-parser.add_argument('--names',type=str,nargs='+',default=[],
-    help='names to assign to the training logs in that order. (defaults to the main part of the filename or the name specified in the log)')
-parser.add_argument('--time-range',choices=['min','max','ask'],default='ask',
-    help="how to behave in case of different time spans of the training logs. 'min' crops all logs by the shortest length, 'max' displays all logs completely and 'ask' asks interactively. (default: ask)")
+parser.add_argument('logfiles', type=path_arg, nargs='*', default=None,  help='the training log json to visualize.')
+parser.add_argument('--log-dir', type=path_arg, default=conf.segmentation_logs_path, help='the folder to look for logfiles in when interactive. (default from configuration)')
+parser.add_argument('--plots-dir', type=path_arg, default=conf.segmentation_plots_path, help='the folder to store generated plots into. Will be created if not existent. No files are overwritten. (default from configuration)')
+parser.add_argument('--save-plots', default=True, action=argparse.BooleanOptionalAction,  help='whether to save plots as svg into a folder.')
+parser.add_argument('--epochs', default=False, action=argparse.BooleanOptionalAction,  help='whether to use epochs instead of iterations as time value.')
+parser.add_argument('--mode', default='joint', choices=['joint','separate'], help='whether to display multiple training logs in one joint plot or in separate plots. (default: joint)')
+parser.add_argument('--class-property', default="IoU", choices=['IoU','Acc'],  help='the property displayed in the class-wise plot. (default: IoU)')
+parser.add_argument('--global-property', default="mIoU", choices=['mIoU','aAcc','mAcc','lr'],  help='the property displayed over time in the total plot. (default: mIoU)')
+parser.add_argument('--second-global-property', default=None, choices=['mIoU','aAcc','mAcc','lr'],  help='which other property to plot along the global-property on the left plot. (default: None)')
+parser.add_argument('--colors',type=str,default=["red","blue","green","orange","purple","pink"],nargs='+', help='colors to assign to the training logs in that order.')
+parser.add_argument('--names',type=str,nargs='+',default=[], help='names to assign to the training logs in that order. (defaults to the main part of the filename or the name specified in the log)')
+parser.add_argument('--time-range',choices=['min','max','ask'],default='ask', help="how to behave in case of different time spans of the training logs. 'min' crops all logs by the shortest length, 'max' displays all logs completely and 'ask' asks interactively. (default: ask)")
 args = parser.parse_args()
 
 classnames = [cl.name for cl in conf.classes]

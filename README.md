@@ -4,7 +4,7 @@ This repository contains tools for exploring and re-annotating ADE20k and for us
 
 ## Python requirements
 
-The requirements from `requirements.txt` need to be installed, preferrably in a virtual environment. 
+The requirements from `requirements.txt` need to be installed, preferrably in a virtual environment. Python Version 3.7 or above is required.
 
 ## MMSegmentation
 
@@ -65,7 +65,7 @@ I created various scripts during the process, which make up most of this repo an
 
 -   The **ADE20k-index**, i.e. the file `index_ade20k.pkl`, shipped with ADE20k (and also [here](http://groups.csail.mit.edu/vision/datasets/ADE20K/toolkit/index_ade20k.pkl)) which contains metadata about the dataset, including classnames and occurences, which can be used without the dataset itself to query its statistics.
 -   The **ADE20k dataset** itself, obtainable via a 5.6GB download from https://groups.csail.mit.edu/vision/datasets/ADE20K (access must first be requested and an account created).
--   The **classes_new** file is created by `additional_dataset_stats.py` and contains more accurate stats of which class can be part of which, and how often that is the case.
+-   The **ade_stats** file is created by `create_ade_stats.py` and contains more accurate stats, like of which classes a class can be part of which, and how often that is the case. It is a more accurate alternative to the `objects.txt` file shipped with ADE20k
 -   The **general configuration**, containing the classes with name, id, scene and color loaded from `classes.json`, which happens by including `conf.py` automatically.
 -   The **ADE-specific configuration**, containing the synonyms and parent constraints and the classnames, for re-annotating ADE20k. By splitting the configurations, the classnames, colors and indices can be changed independently of the datasets to re-annotate.
 
@@ -73,14 +73,13 @@ I created various scripts during the process, which make up most of this repo an
 
 ## For exploring ADE20k:
 
--   `ade20k/class_query.py` lets the user interactively select classes for which either a number of examples is extracted from the dataset, or the total number of images containing the class is counted and displayed.
--   `ade20k/class_stats.py` can be optionally given a classname. It will then compute stats for either only this class or all classes. When computing stats for all classes, it counts the images containing each class and the total number of instances of each class and outputs those, along with the 'objectcounts' and 'proportionClassIsPart' properties from the ADE20k-index, into a csv-file. When computing stats for a single class, it loads the json file for each image containing the class, counts how often the objects of this class are part of which or no class and outputs those into a csv-file.
--   `ade20k/examples.py` extracts one example for each class in a list, with outlines drawn around the class instances.
--   `ade20k/img_details.py` interactively takes image IDs (which are used in the ADE-index) and shows contained classes and counts.
+-   `ade20k/create_ade_stats.py` needs the whole dataset and creates a pkl-file containing parents (with counts), objectcounts and scene presence for each ADE-class and number of images for each scene. 
+-   `ade20k/list_parents.py` does the almost the same for single classes. It takes classnames as input and creates a csv file each with all parents instances of this class can have and how often that is the case. It needs the full dataset.
+-   `ade20k/ade_class_examples.py` extracts examples for each given class, with outlines drawn around the class instances.
+-   `ade20k/query_ade_stats.py` takes the ade_stats file and lets one pick classes interactively, for which all possible parent classes are shown with the count of how often it is the case, and also how often the class appears in which scene.
+-   `ade20k/ade_img_details.py` interactively takes image IDs (which are used in the ADE-index) and shows contained classes and counts.
 -   `ade20k/img_outlines.py` takes a folder containing images and their corresponding json files, and is configured with a list of ADE-class names and colors and saves the images, with colored outlines of the class instances, in an output folder.
--   `ade20k/additional_dataset_stats.py` takes the whole dataset and creates a pkl-file containing parents (with counts), objectcounts and scene presence for each ADE-class and number of images for each scene.
--   `ade20k/make_summary.py` takes a set of ADE-classes and creates a HTML file with examples and statistics.
--   `ade20k/objects.py` takes the classes_new file and lets one pick classes interactively, for which all possible parent classes are shown with the count of how often it is the case, and also how often the class appears in which scene.
+-   `ade20k/create_ade_summary.py` takes a set of ADE-classes and creates a HTML file with examples and statistics.
 -   `ade20k/pick_snippets.py` picks a given number of random snippets from a dataset.
 
 TODO: one script for one/multiple examples of one/multiple ade-classes, optionally outlined
@@ -88,8 +87,8 @@ and one script for stats.
 
 ## For exploring filter configurations:
 
+-   `ade20k/create_filter_summary.py` uses the ADE-specific configuration and the whole dataset, to find examples for images matched by each of the target classes, in order to test a filter configuration. Instances are outlined, and the results are included in a generated html-file along with some statistics.
 -   `ade20k/count_matches.py` uses the ADE-specific configuration and the ADE20k-index to count, how many images match how many target classes and display it as a histogram.
--   `ade20k/filter_test.py` uses the ADE-specific configuration and the whole dataset, to find examples for images matched by each of the target classes, in order to test a filter configuration. Instances are outlined, and the results are included in a generated html-file along with some statistics.
 
 ## For processing ADE20k:
 

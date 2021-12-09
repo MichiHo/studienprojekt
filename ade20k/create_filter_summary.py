@@ -4,6 +4,7 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 
+from utils import *
 import ade_utils as utils
 
 ade_index = utils.adeindex.load()
@@ -17,7 +18,7 @@ out_folder = os.path.expanduser("~/ssh_transfer/filter_others")
 img_folder = os.path.join(out_folder,"img")
 if not os.path.exists(img_folder): os.makedirs(img_folder)
 
-with utils.html(os.path.join(out_folder,"index.htm"),"Filter Test") as w:
+with HtmlContext(out_folder,"Filter Test") as w:
     w(f"""<script>
     var masonries = {{}};
     function grid(id){{

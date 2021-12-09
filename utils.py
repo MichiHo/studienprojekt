@@ -48,7 +48,7 @@ class GeneralConfig(object):
         self.palette = np.array([c.color for c in self.classes],dtype=np.uint8)
         self.train_palette = np.concatenate([
             np.array([[0,0,0]],dtype=np.uint8),
-            self.palette],dtype=np.uint8).flatten()
+            self.palette]).astype(np.uint8).flatten()
         def path(p):
             return os.path.expanduser(os.path.join(project_root_folder,data[p]))
             
@@ -58,7 +58,7 @@ class GeneralConfig(object):
         
         self.ade_index_path =          path('ade_index_path')
         self.ade_dir =                 path('ade_dir')
-        self.ade_classes_new_path =    path('ade_classes_new_path')
+        self.ade_stats_path =    path('ade_stats_path')
         
         self.labelme_dir =             path('labelme_dir')
         self.cmp_dir =                 path('cmp_dir')
@@ -69,6 +69,8 @@ class GeneralConfig(object):
         self.segmentation_stats_path = path('segmentation_stats_dir')
         self.segmentation_model_path = path('segmentation_model_dir')
         self.segmentation_out_path =   path('segmentation_out_dir')
+        
+        self.html_template_dir =       path('html_template_dir')
 
     def padded_palette(padding_length):
         """Return the color palette, padded with [0,0,0] entries to the given length. If padding_length
@@ -77,7 +79,7 @@ class GeneralConfig(object):
             print(f"Padded palette will be shorter than original palette! {padding_length} < {len(palette)}")
             return palette[:padding_length]
         
-        return np.concatenate([palette,np.zeros((len(padding_length)-len(palette),3),dtype=np.uint8)])
+        return np.concatenate([palette,np.zeros((len(padding_length)-len(palette),3))]).astype(np.uint8)
 try:   
     conf = GeneralConfig()
 except FileNotFoundError:
@@ -177,6 +179,77 @@ def progress_bar(val, maxVal, minVal=0, length=10, full='#', empty='-', add_numb
         return full*n + empty*(length-n)
 
 
+class HtmlContext(object):
+    """ContextManager class opening a file and writing html to it. Automatically creates the
+    header and opens and closes the <body> tag. The returned object is callable with a str param
+    which will be appended inside the <body> tag.
+    """
+
+    def __enter__(self):
+        index_path = os.path.join(self.folder,self.html_file_name)
+        if os.path.samefile(self.folder, conf.html_template_dir):
+            if os.path.exists(index_path):
+                if input(f"{index_path} already exists. Overwrite? [y/n]").lower() != "y":
+                    raise ValueError("Cant create html file without overwriting")
+        elif os.path.exists(self.folder):
+            if input(f"HTML output folder {self.folder} already exists. Overwrite? [y/n]").lower() == "y":
+                shutil.rmtree(self.folder)
+            else:
+                raise ValueError("Cant create folder structure without overwriting")
+        shutil.copytree(conf.html_template_dir, self.folder)
+            
+        self.f = open(index_path, "w")
+
+        self.__call__(f'''<!doctype html><html>
+        <head>
+        <meta charset="utf-8">
+        <title>{self.title}</title>
+        <link href="../style.css" rel="stylesheet">
+        <script src="../masonry.pkgd.min.js"></script>
+        </head>
+        <body>''')
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.__call__("</body></html>")
+        self.f.close()
+
+    def __init__(self, folder : str, html_file_name : str = "index.htm", title : str = "HTML Summary"):
+        """Construct
+
+        Args:
+            folder (str): Path to the folder to store the files in.
+            title (str, optional): Title of the page. Defaults to "HTML Summary".
+        """
+        self.folder = folder
+        self.html_file_name = html_file_name
+        self.title = title
+
+    def __call__(self, string : str):
+        """Append text inside the <body> tag
+
+        Args:
+            string (str): Text to insert
+        """
+        self.f.write(string)
+    
+    @staticmethod
+    def color(cl):
+        """Returns the given color codes as css rgb-string
+
+        Args:
+            cl (List[int]): List of R,G,B ints (0-255)
+
+        Returns:
+            str: rgb(r,g,b) like string
+        """
+        return f"rgb({cl[0]},{cl[1]},{cl[2]})"
+        
+    @staticmethod
+    def item(title,val):
+        return f"<p class='item{' numeric-item' if isinstance(val,(int,float,complex)) else ''}'><span class='title'>{title}</span><span class='val'>{val}</span></p>"
+
+
 #######################################################
 # Data loading utils
 
@@ -214,6 +287,19 @@ def multi_root_json_parse(string:str):
 def path_arg(path):
     """Runs expanduser on the path"""
     return os.path.expanduser(path)
+    
+def colon_separated(in_list,sep=":"):
+    """Utility for enabling colon-separated list of arguments within argparse. Takes a list of strings
+    as created by splitting by whitespace, combines it again (split by whitespace) and splits it by
+    colons instead.
+
+    Args:
+        in_list (List[str]): List from argparse with multiple possible args (nargs)
+
+    Returns:
+        List[str]: List of strings if split with colons instead
+    """
+    return [s.strip() for s in ' '.join(in_list).split(sep)]
 
 
 #######################################################
