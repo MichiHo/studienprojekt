@@ -189,16 +189,20 @@ class HtmlContext(object):
 
     def __enter__(self):
         index_path = os.path.join(self.folder,self.html_file_name)
-        if os.path.samefile(self.folder, conf.html_template_dir):
-            if os.path.exists(index_path):
-                if input(f"{index_path} already exists. Overwrite? [y/n]").lower() != "y":
-                    raise ValueError("Cant create html file without overwriting")
-        elif os.path.exists(self.folder):
-            if input(f"HTML output folder {self.folder} already exists. Overwrite? [y/n]").lower() == "y":
-                shutil.rmtree(self.folder)
+        if os.path.exists(self.folder):
+            if os.path.samefile(self.folder, conf.html_template_dir):
+                if os.path.exists(index_path):
+                    if input(f"{index_path} already exists. Overwrite and write into the html template directory? [y/n]").lower() != "y":
+                        raise ValueError("Cant create html file without overwriting")
+                        
             else:
-                raise ValueError("Cant create folder structure without overwriting")
-        shutil.copytree(conf.html_template_dir, self.folder)
+                if input(f"HTML output folder {self.folder} already exists. Overwrite? [y/n]").lower() == "y":
+                    shutil.rmtree(self.folder)
+                    shutil.copytree(conf.html_template_dir, self.folder)
+                else:
+                    raise ValueError("Cant create folder structure without overwriting")
+        else:
+            shutil.copytree(conf.html_template_dir, self.folder)
         
         
         if not os.path.exists(self.img_folder):
@@ -213,7 +217,8 @@ class HtmlContext(object):
         <link href="style.css" rel="stylesheet">
         <script src="masonry.pkgd.min.js"></script>
         </head>
-        <body>''')
+        <body>
+        <div class="top-title">{self.title}</div>''')
         return self
 
     def __exit__(self, exc_type, exc_value, traceback):
@@ -244,6 +249,7 @@ class HtmlContext(object):
         self.f.write(string)
     
     def imgpath(self, img_file_name):
+        """ Image path relative to html directory an image of this name should have. """
         return os.path.join(self.img_folder_name,img_file_name)
     
     @staticmethod

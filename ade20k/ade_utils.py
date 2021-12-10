@@ -189,11 +189,11 @@ class AdeConfiguration(object):
     @staticmethod
     def load(ade_index : dict, filepath : str = general_conf.annotate_filers_conf):
         with open(filepath, "r") as f:
-            json = json.load(f)
+            data = json.load(f)
             
         target_classes = [
             AdeTargetClass.from_json(ade_index, class_json)
-            for class_json in json['classes']]
+            for class_json in data['classes']]
         target_classes = [cl for cl in target_classes if cl is not None]
             
         target_classes = {cl.id : cl for cl in target_classes}
@@ -201,7 +201,7 @@ class AdeConfiguration(object):
             if not conf_class.id in target_classes: 
                 raise ValueError(f"Target class {conf_class.name} missing in ade-specific json conf!")
             
-        return AdeConfiguration(target_classes, json['detection_threshold'])
+        return AdeConfiguration(target_classes, data['detection_threshold'])
 
     def __init__(self, target_classes: Dict[int,AdeTargetClass], detection_thres: int):
         # create mask
@@ -639,7 +639,24 @@ class AdeIndex(object):
                     return
                 found += 1
                 yield i2
+    
+    @staticmethod
+    def any_images(random=False):
+        """Iterate over all image IDs, optionally randomized
 
+        Args:
+            random (bool, optional): Whether to randomize the order. Defaults to False.
+
+        Returns:
+            int iterator over all IDs
+        """
+        if random: 
+            iterr = np.random.permutation(num_images)
+        for i in range(num_images):
+            if random: yield iterr[i]
+            else: yield i
+        
+    
     @staticmethod
     def classname(ade_index,index):
         """Lookup the classname for the given class index in the ade_index object

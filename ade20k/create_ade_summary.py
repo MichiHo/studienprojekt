@@ -32,7 +32,7 @@ ade_index = utils.AdeIndex.load()
 ade_stats = utils.AdeStats.load()
 print("-> done")
 
-####################################################################################################
+##########################################################################################
 ## Check all inputs, show guesse for each nonexistent class and
 ## otherwise remove these classes
 
@@ -124,7 +124,7 @@ if num_total_items == 0:
     print("Specify at least one classname / combination / parent-child set")
     exit()
 
-####################################################################################################
+##########################################################################################
 ## Create color scheme and legend for all classes present in the arguments
 
 cmap = plt.get_cmap("Dark2")
@@ -150,7 +150,7 @@ def scalefac(img):
 
 with HtmlContext(args.out_dir,"ADE20k Summary") as w:
     
-    ####################################################################################################
+    ##########################################################################################
     ## Single Classes
     
     if len(classnames) > 0:
@@ -197,7 +197,7 @@ with HtmlContext(args.out_dir,"ADE20k Summary") as w:
             w("</div></div></div>")
         w("</details>")
     
-    ####################################################################################################
+    ##########################################################################################
     ## Class combinations
     
     if len(combinations) > 0:
@@ -239,7 +239,7 @@ with HtmlContext(args.out_dir,"ADE20k Summary") as w:
         w("</div>")
 
 
-    ####################################################################################################
+    ##########################################################################################
     ## Parent-child combinations
     
     if len(child_parents) > 0:
