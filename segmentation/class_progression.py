@@ -46,14 +46,15 @@ def gridarg(strr):
     return grid
 
 parser = argparse.ArgumentParser(description=__doc__)
+parser.set_defaults(save_plots=True,epochs=False)
 parser.add_argument('logfile', type=path_arg, nargs='?', default=None, help='the training log json to visualize.')
 parser.add_argument('--log-dir', type=path_arg, default=conf.segmentation_logs_path,help='the folder to look for logfiles in when interactive. (default from configuration)')
 parser.add_argument('--plots-dir', type=path_arg, default=conf.segmentation_plots_path,help='the folder to store generated plots into. Will be created if not existent. No files are overwritten. (default from configuration)')
-parser.add_argument('--save-plots', default=True, action=argparse.BooleanOptionalAction, help='whether to save plots as svg into a folder.')
+parser.add_argument('--no-save-plots', dest="save_plots", action="save_false", help='dont save plots as svg into a folder.')
 parser.add_argument('--exclude', type=str, nargs='+',default=[],help='the names of classes to exclude.')
 parser.add_argument('--only', type=str, nargs='+',default=[],help='which classes to display only.')
 parser.add_argument('--grid',type=gridarg,default=[2,3],help='Size of the grid to split the plots into. 1x1 shows all in a single plot. '+gridarg.__doc__)
-parser.add_argument('--epochs', default=False, action=argparse.BooleanOptionalAction, help='whether to use epochs instead of iterations as time value.')
+parser.add_argument('--epochs', dest="epochs", action="save_true", help='use epochs instead of iterations as time value.')
 parser.add_argument('--property', default="IoU", choices=['IoU','Acc'], help='the property whose values to display.')
 args = parser.parse_args()
 

@@ -16,12 +16,13 @@ from utils import *
 
 
 parser = argparse.ArgumentParser(description=__doc__)
+parser.set_defaults(save=True,resize=True,histogram=False)
 parser.add_argument('--root-dir', type=path_arg, default=conf.segmentation_out_path,
     help='the folder to look for image folders in if --dir is not set. (default from configuration)')
 parser.add_argument('--dir', type=path_arg, default=None,
     help='the folder to directly visualize images from. (defaults to None)')
-parser.add_argument('--save', default=True, action=argparse.BooleanOptionalAction, 
-    help='whether to save the visualizations as png files.')
+parser.add_argument('--no-save', dest="save", action="store_false", 
+    help='dont save the visualizations as png files.')
 parser.add_argument('--save-dir', type=path_arg, default=None,
     help='the folder to save visualizations into instead of the input folder. (defaults to None)')
 parser.add_argument('--mode',choices=['all','interactive'],default='interactive',
@@ -29,9 +30,9 @@ parser.add_argument('--mode',choices=['all','interactive'],default='interactive'
 parser.add_argument('--conf-path', type=path_arg, default=None, help='path of conf.json, if it deviates from the default.')
 parser.add_argument('--display',choices=['window','maximized','none'],default='maximized',
     help="whether to display each image and how. (default: 'maximized')")
-parser.add_argument('--resize', default=True, action=argparse.BooleanOptionalAction, 
-    help='whether to resize big images to have a reasonable font size in comparison.')
-parser.add_argument('--histogram', default=False, action=argparse.BooleanOptionalAction, 
+parser.add_argument('--no-resize', dest="resize", action="store_false", 
+    help='dont resize big images to have a reasonable font size in comparison.')
+parser.add_argument('--histogram', dest="histogram", action="store_true", 
     help='whether to also show a histogram (pixels of classes) in the live display.')
 args = parser.parse_args()
 

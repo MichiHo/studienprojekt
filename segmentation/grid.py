@@ -10,11 +10,12 @@ import argparse
 from utils import *
 
 parser = argparse.ArgumentParser(description=__doc__)
+parser.set_defaults(paths=False,maximize=True)
 parser.add_argument('folders', type=path_arg, nargs='*', help='the folders to use. If omitted, an interactive dialog is shown to pick from folders inside --root-dir')
 parser.add_argument('--root-dir', type=path_arg, default=conf.segmentation_out_path, help='the folder in which to look for the output folders. (default from configuration)')
-parser.add_argument('--paths', default=False, action=argparse.BooleanOptionalAction, help='whether to look in --root-dir for the folders, or interpret them as paths.')
+parser.add_argument('--paths', dest="paths", action="store_true", help='interpret folders as paths instead of looking in --root-dir.')
 parser.add_argument('--rows', type=int, default=4, help='the number of rows / different images to display at a time.')
-parser.add_argument('--maximize', default=True, action=argparse.BooleanOptionalAction, help='whether or not to maximize each new grid window.')
+parser.add_argument('--no-maximize', dest="maximize", action="store_false", help='dont maximize each new grid window.')
 args = parser.parse_args()
 
 

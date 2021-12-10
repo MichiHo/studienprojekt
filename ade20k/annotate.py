@@ -27,10 +27,11 @@ import ade_utils as utils
 
 
 parser = argparse.ArgumentParser(description=__doc__)
+parser.set_defaults(overwrite=False,confirm=True)
 parser.add_argument('--out-dir', type=path_arg, default=conf.dataset_out_path,
     help='the folder to store the result in. It will be filled with subfolders for indoor,outdoor,inout_extended etc. (default from configuration)')
-parser.add_argument('--overwrite', default=False, action=argparse.BooleanOptionalAction, 
-    help='whether to delete previous contents of --out-dir. If set to False, a dialog is shown in case the folder is not empty. (default: False)')
+parser.add_argument('--overwrite', dest="overwrite", action="store_true", 
+    help='delete previous contents of --out-dir. If not set, a dialog is shown in case the folder is not empty.')
 parser.add_argument('--ade-conf', type=path_arg, default=conf.annotate_filers_conf,
     help='the path to a json file with the ade-specific filters for re-annotation. (default from configuration)')
 parser.add_argument('--snippets-dir', type=path_arg, default=conf.annotate_snippets_dir,
@@ -39,8 +40,8 @@ parser.add_argument('--snippet-count', type=int, default=50,
     help='the number of images of the new dataset to also store in the snippets-dir. (default: 50)')
 parser.add_argument('--snippet-every', type=int, default=200,
     help='the number of images to skip between each snippet. (default: 200)')
-parser.add_argument('--confirm', default=True, action=argparse.BooleanOptionalAction, 
-    help='whether a confirmation should be prompted from the user after showing the configuration and before starting the re-annotation. (default: True)')
+parser.add_argument('--no-confirm', dest="confirm", action="store_false", 
+    help='dont prompt a confirmation from the user after showing the configuration and before starting the re-annotation.')
 args = parser.parse_args()
 
 # Load configuration and index data

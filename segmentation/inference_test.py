@@ -24,14 +24,14 @@ from utils import *
 
 
 parser = argparse.ArgumentParser(description=__doc__)
+parser.set_defaults(paths=False,ignore_model_classcount=False)
 parser.add_argument('folders', type=path_arg, nargs='*', default=[], help='the algorithm folders to use. Interpreted as paths relative to --work-dir, or relative to this script if --paths True is set. if omitted, an interactive choice is shown.')
-parser.add_argument('--paths', default=False, action=argparse.BooleanOptionalAction, help='whether to interpret the positional arguments as paths. If set to False (default), the arguments are interpreted as paths relative to --work-dir.')
+parser.add_argument('--paths', dest="paths", action="store_true", help='whether to interpret the positional arguments as paths. If set to False (default), the arguments are interpreted as paths relative to --work-dir.')
 parser.add_argument('--max-imgs', type=int, default=999999, help='the maximum number of images to run inference on.')
 parser.add_argument('--work-dir', type=path_arg, default=conf.segmentation_model_path, help='the folder containing all trained algorithms folders. (default from configuration)')
 parser.add_argument('--output-dir', type=path_arg, default=conf.segmentation_out_path, help='the folder to create one folder per algorithm in, which will contain the results. (default from configuration)')
-parser.add_argument('--images-dir', type=path_arg, default=True, action=argparse.BooleanOptionalAction, help='whether or not to maximize each new grid window.')
 parser.add_argument('--overlay-opacity', type=float, default=0.5, help='the opacity with which the segmentation map is painted over the original image for the jpg-output.')
-parser.add_argument('--ignore-model-classcount', default=False, action=argparse.BooleanOptionalAction, help='whether to ignore if a model has more classes than the general configuration. If set to False, a dialog will show in this case, if set to True (or if the dialog is answered with Yes), the palette will be padded with blacks.')
+parser.add_argument('--ignore-model-classcount', dest="ignore_model_classcount", action="store_true", help='whether to ignore if a model has more classes than the general configuration. If set to False, a dialog will show in this case, if set to True (or if the dialog is answered with Yes), the palette will be padded with blacks.')
 args = parser.parse_args()
 
 

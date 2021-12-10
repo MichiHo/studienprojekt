@@ -11,11 +11,12 @@ from utils import *
 
 props = ["IoU","Acc"]
 parser = argparse.ArgumentParser(description=__doc__)
+parser.set_defaults(omit_zero=False)
 parser.add_argument('--log-dir', type=path_arg, default=conf.segmentation_logs_path,
     help='the folder to look for logfiles in when interactive. (default from configuration)')
 parser.add_argument('--properties', default=["IoU", "Acc"], nargs='+', choices=props, 
     help='the properties, for each of which class-wise highscores are shown. (default: ["IoU", "Acc"])')
-parser.add_argument('--omit-zero', default=False, action=argparse.BooleanOptionalAction, 
+parser.add_argument('--omit-zero', dest="omit_zero", action="store_true", 
     help='whether to hide a configuration, if it not made any highscore for a property.')
 parser.add_argument('--second-bests', type=int, default=100,
     help='how many ranks below the best to also show, in gray.')

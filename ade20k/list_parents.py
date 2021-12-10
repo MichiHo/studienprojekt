@@ -13,10 +13,11 @@ import ade_utils as utils
 
 
 parser = argparse.ArgumentParser(description=__doc__)
+parser.set_defaults(save=True,display=False)
 parser.add_argument('classnames', type=str, nargs='+', help='names of the classes to list parents of, separated by colons (comma and whitespace can be part of an ADE20k classname).')
 parser.add_argument('--out-dir', type=path_arg, default="", help='the folder to store the csv files in. (defaults to this folder)')
-parser.add_argument('--save', default=True, action=argparse.BooleanOptionalAction, help='whether to store the stats as csv file.')
-parser.add_argument('--display', default=False, action=argparse.BooleanOptionalAction, help='whether to print the stats to console.')
+parser.add_argument('--no-save', dest="save", action="store_false", help='dont store the stats as csv file.')
+parser.add_argument('--display', dest="display", action="store_true", help='print the stats to console.')
 args = parser.parse_args()
 
 args.classnames = colon_separated(args.classnames)

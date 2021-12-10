@@ -5,9 +5,10 @@ from utils import *
 
 
 parser = argparse.ArgumentParser(description=__doc__)
+parser.set_defaults(overwrite=False)
 parser.add_argument('--output-path', type=path_arg, default="palette.html", help='the path of the output html file. (default: "palette.html")')
 parser.add_argument('--conf-path', type=path_arg, default=None, help='path of conf.json, if it deviates from the default.')
-parser.add_argument('--overwrite', default=False, action=argparse.BooleanOptionalAction, help='whether to overwrite the output file if it is present')
+parser.add_argument('--overwrite',dest="overwrite", action="store_true", help='whether to overwrite the output file if it is present')
 args = parser.parse_args()
 
 if args.conf_path is not None:

@@ -11,10 +11,11 @@ import ade_utils as utils
 from utils import *
 
 parser = argparse.ArgumentParser(description=__doc__)
+parser.set_defaults(outline=True)
 parser.add_argument('classnames', type=str, nargs='+', help='names of the classes to list parents of, separated by colons (comma and whitespace can be part of an ADE20k classname).')
 parser.add_argument('--out-dir', type=path_arg, default="examples", help='the folder in which a subfolder for each class will be filled with examples if --num > 1. If --num=1, all images are stored directly here. (default: "examples")')
 parser.add_argument('--num', type=int, default=10, help='the number of examples to extract (default: 10)')
-parser.add_argument('--outline', default=True, action=argparse.BooleanOptionalAction,  help='whether to paint outlines around the classes on the image.')
+parser.add_argument('--no-outline', dest="outline", action="store_false", help='dont paint outlines around the classes on the image.')
 args = parser.parse_args()
 
 args.classnames = colon_separated(args.classnames)
