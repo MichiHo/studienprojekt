@@ -1,3 +1,4 @@
+--find-links https://download.pytorch.org/whl/torch_stable.html
 addict==2.4.0
 chardet==4.0.0
 cycler==0.10.0
@@ -16,8 +17,8 @@ pyparsing==2.4.7
 python-dateutil==2.8.2
 PyYAML==5.4.1
 six==1.16.0
-torch==1.9.0+cu111 --no-index --find-links https://download.pytorch.org/whl/
-torchvision==0.10.0+cu111 --no-index --find-links https://download.pytorch.org/whl/
+torch==1.9.0+cu111 
+torchvision==0.10.0+cu111 
 tqdm==4.62.3
 typing-extensions==3.10.0.2
 wcwidth==0.2.5
