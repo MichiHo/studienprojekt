@@ -3,6 +3,7 @@ own_test_imgs/indoor/*
 own_test_imgs/outdoor/*
 mmsegmentation
 ADE20K_2021_17_01
+venv
 # custom folders:
 papers
 doc
