@@ -19,3 +19,5 @@ cd pretrain
 wget https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_base_patch4_window12_384_22k.pth
 mv swin_base_patch4_window12_384_22k.pth swin_base_patch4_window12_384_22k_oldkeys.pth
 python3 ../tools/model_converters/swin2mmseg.py swin_base_patch4_window12_384_22k.pth swin_base_patch4_window12_384_22k_oldkeys.pth swin_base_patch4_window12_384_22k.pth swin_base_patch4_window12_384_22k.pth
+
+deactivate

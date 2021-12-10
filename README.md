@@ -78,11 +78,7 @@ I created various scripts during the process, which make up most of this repo an
 -   `ade20k/list_parents.py` does the almost the same as `create_ade_stats` for single classes. It takes classnames as input and creates a csv file each with all parents instances of this class can have and how often that is the case. It needs the full dataset.
 -   `ade20k/ade_class_examples.py` extracts examples for each given class, with outlines drawn around the class instances.
 -   `ade20k/query_ade_stats.py` needs `ade_stats.pkl` and lets one pick classes interactively, for which all possible parent classes are shown with the count of how often it is the case, and also how often the class appears in which scene.
--   `ade20k/img_outlines.py` takes a folder containing images and their corresponding json files, and is configured with a list of ADE-class names and colors and saves the images, with colored outlines of the class instances, in an output folder.
 -   `ade20k/pick_snippets.py` picks a given number of random snippets from a dataset.
-
-TODO: one script for one/multiple examples of one/multiple ade-classes, optionally outlined
-and one script for stats.
 
 ## For exploring filter configurations:
 
@@ -101,7 +97,7 @@ and one script for stats.
 ## For visualizing segmentation results:
 
 -   `segmentation/visualize.py` visualizes single inference results with a class legend and pointers to individual 'objects' in the scene.
--   `segmentation/grid.py` can comparatively show inference results. It takes several folders as arguments and comparatively shows images of same name, which are present in all of them, side by side and in multiple rows. Can be used to quickly compare segmentation outputs of different algorithms.
+-   `segmentation/grid.py` can comparatively show inference results. It takes several folders as arguments (or you can select them interactively) and comparatively shows images of same name, which are present in all of them, side by side and in multiple rows. Can be used to quickly compare segmentation outputs of different algorithms.
 -   `segmentation/training_plot.py` visualizes overall training progress (IoU over time) and final class-wise performance (IoU) for multiple training processes given their log json-files.
 -   `segmentation/class_progression.py` draws the progression of the class-wise performance (IoU or Acc) over time for each class. The classes can be distributed to a 2D-grid of subplots or shown all in the same figure.
 -   `segmentation/class_highscores.py` takes all training logs from a folder and ranks them by how many classes they segmented best according to IoU and/or Acc 
