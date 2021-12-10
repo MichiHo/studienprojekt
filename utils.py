@@ -111,7 +111,7 @@ def choice(l:List,indices:bool=False, text:str="Choice: ",displaylist:List[str]=
         displaylist (list, optional): List of strings of same length as l. Defaults to None.
 
     Returns:
-        An item from l or its index in l
+        An item from l or its index in l. Or None if nothing was selected
     """
     if grayout is None:
         for i,f in enumerate(l):
@@ -183,6 +183,8 @@ class HtmlContext(object):
     """ContextManager class opening a file and writing html to it. Automatically creates the
     header and opens and closes the <body> tag. The returned object is callable with a str param
     which will be appended inside the <body> tag.
+    The class also creates a small folder structure under the given path, containing an imgs folder
+    and everything copied from the html template folder.
     """
 
     def __enter__(self):
@@ -197,6 +199,10 @@ class HtmlContext(object):
             else:
                 raise ValueError("Cant create folder structure without overwriting")
         shutil.copytree(conf.html_template_dir, self.folder)
+        
+        
+        if not os.path.exists(self.img_folder):
+            os.makedirs(self.img_folder)
             
         self.f = open(index_path, "w")
 
@@ -204,8 +210,8 @@ class HtmlContext(object):
         <head>
         <meta charset="utf-8">
         <title>{self.title}</title>
-        <link href="../style.css" rel="stylesheet">
-        <script src="../masonry.pkgd.min.js"></script>
+        <link href="style.css" rel="stylesheet">
+        <script src="masonry.pkgd.min.js"></script>
         </head>
         <body>''')
         return self
@@ -214,7 +220,7 @@ class HtmlContext(object):
         self.__call__("</body></html>")
         self.f.close()
 
-    def __init__(self, folder : str, html_file_name : str = "index.htm", title : str = "HTML Summary"):
+    def __init__(self, folder : str, title : str = "HTML Summary", html_file_name : str = "index.htm"):
         """Construct
 
         Args:
@@ -222,7 +228,11 @@ class HtmlContext(object):
             title (str, optional): Title of the page. Defaults to "HTML Summary".
         """
         self.folder = folder
+        self.img_folder_name = "imgs"
+        self.img_folder = os.path.join(folder,self.img_folder_name)
         self.html_file_name = html_file_name
+        if not self.html_file_name.lower()[-4:] in {".htm","html"}:
+            self.html_file_name = self.html_file_name + ".htm"
         self.title = title
 
     def __call__(self, string : str):
@@ -232,6 +242,9 @@ class HtmlContext(object):
             string (str): Text to insert
         """
         self.f.write(string)
+    
+    def imgpath(self, img_file_name):
+        return os.path.join(self.img_folder_name,img_file_name)
     
     @staticmethod
     def color(cl):
@@ -299,7 +312,10 @@ def colon_separated(in_list,sep=":"):
     Returns:
         List[str]: List of strings if split with colons instead
     """
-    return [s.strip() for s in ' '.join(in_list).split(sep)]
+    new_items = ' '.join(in_list).split(sep)
+    new_items = [s.strip() for s in new_items]
+    new_items = [s for s in new_items if s != ""]
+    return new_items
 
 
 #######################################################

@@ -258,17 +258,32 @@ class AdeConfiguration(object):
 class Images(object):
     """Utils for dealing with image data."""
     @staticmethod
-    def instance_outline(img, instance_data, color, thickness=None, lineType=None, shift=None):
+    def instance_outline(img, instance_data, color, thickness=None, lineType=None, shift=None, point_scaling=1.0):
+        """Draws the outline of a single object instance on top of the image.
+
+        Args:
+            img (cv2 image): The image, as loaded by cv2
+            instance_data (dict): Data for an object instance from an annotation json
+            color (tuple): Color in BGR for the outline
+            thickness (int, optional): Integer thickness of the outline. Defaults to None.
+            lineType (str, optional): lineType argument for cv2.polylines. Defaults to None.
+            shift (optional): shift argument for cv2.polylines. Defaults to None.
+            point_scaling (float, optional): Factor to scale the object's outline polygon with. Does not apply to the image. Defaults to 1.0.
+
+        Returns:
+            cv2 image: img with outline on top
+        """
         points = np.array([
             [instance_data['polygon']['x'][i], instance_data['polygon']['y'][i]]
-            for i in range(len(instance_data['polygon']['x']))], np.int32)
-        points = points.reshape((-1, 1, 2))
+            for i in range(len(instance_data['polygon']['x']))]) * point_scaling
+        points = points.reshape((-1, 1, 2)).astype(np.int32)
         return cv2.polylines(img, [points], True, color, thickness=thickness, lineType=lineType, shift=shift)
 
     @staticmethod
-    def class_outlines(img, img_data, classes_colors, legend=True, add_info=False, highlight_instances=[]):
+    def class_outlines(img, img_data, classes_colors, legend=True, add_info=False, highlight_instances=[],scaling=1.0):
         """Create image with outlines of class instances of given classes. The given classes are painted
-        in that order.
+        in that order. The color is in RGB, image is expected as loaded from cv2 (with BGR, conversion
+        is done here)
 
         Args:
             in_folder (str): Folder containing the jpg and json file
@@ -291,11 +306,14 @@ class Images(object):
         font = cv2.FONT_HERSHEY_SIMPLEX
         legend_y = img.shape[0]-2
         counts = {}
+        
+        #size = (int(img.shape[0] * scaling),int(img.shape[1]*scaling))
+        img = cv2.resize(img,[0,0],fx=scaling,fy=scaling,interpolation=cv2.INTER_AREA)
 
         for inst in highlight_instances:
             col = (inst['color'][2], inst['color'][1], inst['color'][0])
             img = Images.instance_outline(img, ImgData.find_obj_by_id(
-                img_data, inst['id']), col, inst['thickness'])
+                img_data, inst['id']), col, inst['thickness'],point_scaling=scaling)
 
         for classname, partof, col, thickness in classes_colors:
             # bgr <-> rgb
@@ -311,7 +329,7 @@ class Images(object):
                     if parent['name'] != partof:
                         continue
                 count += 1
-                img = Images.instance_outline(img, o, col, thickness)
+                img = Images.instance_outline(img, o, col, thickness,point_scaling=scaling)
 
             if not classname in counts:
                 counts[classname] = count
@@ -471,24 +489,27 @@ class AdeIndex(object):
         return ade_index
 
     @staticmethod
-    def load_img(ade_index, img_index, load_imgdata=False):
-        """Load the image with the given index
+    def load_img(ade_index, img_index, load_imgdata=False, load_training_image=True):
+        """Loads, for the given index, the training image from .jpg and/or the imgdata from .json
 
         Args:
             ade_index (dict): Index dict
             img_index (int): Index of the image
-            load_imgdata (bool, optional): Whether to also load the annotations. Defaults to False.
+            load_imgdata (bool, optional): Whether to load the annotations. Defaults to False.
+            load_training_image (bool, optional): Whether to load the annotations. Defaults to True.
 
         Returns:
-            cv2 image or (image, dict): image and optionally the annotations.
+            cv2 image or (image, dict) or dict: image and/or annotations.
         """
 
         filename = ade_index['filename'][img_index][:-4]
         foldername = ade_index['folder'][img_index]
-        img = cv2.imread(os.path.join(project_root_folder,foldername, filename+".jpg"))
+        if load_training_image:
+            img = cv2.imread(os.path.join(project_root_folder,foldername, filename+".jpg"))
         if load_imgdata:
             img_data = ImgData.load(foldername, filename)
-            return (img, img_data)
+            if load_training_image: return (img, img_data)
+            else: return img_data
         else:
             return img
 
@@ -526,6 +547,10 @@ class AdeIndex(object):
             return -1
         else:
             return ade_index['objectnames'].index(name)
+    
+    @staticmethod
+    def class_guess(ade_index,guess):
+        return list(filter(lambda name: guess.lower() in name,ade_index['objectnames']))
 
     @staticmethod
     def matches_one_class(ade_index, classes, img_index):
@@ -603,6 +628,7 @@ class AdeIndex(object):
         Yields:
             int: ID of images containing all of the given classes.
         """
+        if count == None: count = num_images
         found = 0
         if random: permutation = np.random.permutation(num_images)
         for i in range(start_index, num_images):
@@ -616,10 +642,34 @@ class AdeIndex(object):
 
     @staticmethod
     def classname(ade_index,index):
+        """Lookup the classname for the given class index in the ade_index object
+
+        Args:
+            ade_index (dict): ADE20k index file data
+            index (int): Index of the class. If < 0, "NONE" is returned
+
+        Returns:
+            str: Classname, or "NONE" if index < 0 
+        
+        Raises:
+            ValueError if the index is out of bounds
+        """
         return ade_index['objectnames'][index] if index >= 0 else "NONE"
     
     @staticmethod
     def classnames(ade_index,ids):
+        """Iterator over the classnames for the given class indices, from the ade_index object
+
+        Args:
+            ade_index (dict): ADE20k index file data
+            ids (List[int]): Class indices. Index < 0 translates to to "NONE".
+
+        Yields:
+            str: Classname, or "NONE" if index < 0, for each index in ids
+        
+        Raises:
+            ValueError if an index is out of bounds
+        """
         for i in ids:
             yield AdeIndex.classname(ade_index,i)
 
@@ -703,7 +753,7 @@ class AdeStats(object):
 
     -   classes: contains for each class (indexed by integer class-id):
         -   name
-        -   scenes: scenes it is present in, 
+        -   scenes: scenes it is present in, dict with val=occurrence
         -   parents: a dict mapping class-ids (or -1 for NONE) to the number this parent-class is assumed
         -   object_count: total number of class instances in the dataset
         -   image_count: number of images containing this class
@@ -715,7 +765,7 @@ class AdeStats(object):
 
     @staticmethod
     def load():
-        with open("ade_stats.pkl", "rb") as pkl_file:
+        with open(general_conf.ade_stats_path, "rb") as pkl_file:
             classes = pickle.load(pkl_file)
 
         return classes
@@ -724,12 +774,37 @@ class AdeStats(object):
 class Plots(object):
 
     @staticmethod
-    def parent_stats(ade_index, classes : dict, class_id : int, save_path : str):
-        fig = plt.figure()
-        ax = fig.add_axes([0, 0, 1, 1])
-        ax.bar(
-            ["NONE" if idd == -1 else ade_index['objectname'][idd]
-                for idd in classes[class_id]['parents'].keys()],
-            classes[class_id]['parents'].values())
+    def parent_stats(ade_index, ade_stats : dict, class_id : int, save_path : str):
+        def trim(st):
+            l = 20
+            if len(st) > l+2:
+                return st[:l] + ".."
+            return st
+            
+        fig, ax = plt.subplots(1,2,figsize=[14,6],gridspec_kw={'width_ratios': [3, 1]})
+        
+        parents = ade_stats['classes'][class_id]['parents']
+        parents = sorted(parents.items(),key=lambda item: item[1],reverse=True)
+        parents = dict(parents)
+        
+        ticklabels = ["NONE" if idd == -1 else trim(AdeIndex.classname(ade_index, idd))
+                for idd in parents.keys()]
+        ticks = np.arange(len(ticklabels))
+        ax[0].set_title("Parent occurrence for "+AdeIndex.classname(ade_index, class_id))
+        ax[0].bar(ticks,
+            parents.values())
+        ax[0].set_xticks(ticks)
+        ax[0].set_xticklabels(ticklabels,rotation="vertical",fontsize=7)
+        
+        scenes = ade_stats['classes'][class_id]['scenes']
+        ticklabels = scenes.keys()
+        ticks = np.arange(len(ticklabels))
+        ax[1].set_title("Scene occurrence for "+AdeIndex.classname(ade_index, class_id))
+        ax[1].bar(ticks,
+            scenes.values())
+        ax[1].set_xticks(ticks)
+        ax[1].set_xticklabels(ticklabels,rotation="vertical")
+        
+        plt.tight_layout()
         plt.savefig(save_path)
 
