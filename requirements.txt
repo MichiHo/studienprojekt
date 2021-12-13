@@ -1,4 +1,5 @@
 --find-links https://download.pytorch.org/whl/torch_stable.html
+--find-links https://download.openmmlab.com/mmcv/dist/cu111/torch1.9.0/index.html
 addict==2.4.0
 chardet==4.0.0
 cycler==0.10.0

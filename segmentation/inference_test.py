@@ -28,6 +28,8 @@ parser.set_defaults(paths=False,ignore_model_classcount=False)
 parser.add_argument('folders', type=path_arg, nargs='*', default=[], help='the algorithm folders to use. Interpreted as paths relative to --work-dir, or relative to this script if --paths True is set. if omitted, an interactive choice is shown.')
 parser.add_argument('--paths', dest="paths", action="store_true", help='whether to interpret the positional arguments as paths. If set to False (default), the arguments are interpreted as paths relative to --work-dir.')
 parser.add_argument('--max-imgs', type=int, default=999999, help='the maximum number of images to run inference on.')
+parser.add_argument('--images-dir', type=path_arg, default=conf.test_images_dir, help='the folder containing the images to run inference on. (default from configuration)')
+
 parser.add_argument('--work-dir', type=path_arg, default=conf.segmentation_model_path, help='the folder containing all trained algorithms folders. (default from configuration)')
 parser.add_argument('--output-dir', type=path_arg, default=conf.segmentation_out_path, help='the folder to create one folder per algorithm in, which will contain the results. (default from configuration)')
 parser.add_argument('--overlay-opacity', type=float, default=0.5, help='the opacity with which the segmentation map is painted over the original image for the jpg-output.')
@@ -122,13 +124,13 @@ if in_out_split:
             images.append(mmcv.imread(os.path.join(folder_path,img_name)))
         all_images[folder] = images
         all_image_names[folder] = img_names
-    print(f" done. {len(all_images['indoor'])} indoor, {len(all_images['outdoor'])} outdoor. Type: {type(all_images['indoor'][0])}")
+    print(f" done. {len(all_images['indoor'])} indoor, {len(all_images['outdoor'])} outdoor.")
 else:
     all_images = []
     all_image_names = os.listdir(custom_folder)
     for img_name in all_image_names:
         all_images.append(mmcv.imread(os.path.join(custom_folder,img_name)))
-    print(f" done. {len(all_images)} images. Type: {type(all_images[0])}")
+    print(f" done. {len(all_images)} images.")
 
     
 
@@ -147,7 +149,7 @@ for model_desc in models:
     
     out_folder = os.path.join(args.output_dir,"output_"+model_desc['name'])
     
-    if not os.path.exists(args.out): os.makedirs(out_folder)
+    if not os.path.exists(out_folder): os.makedirs(out_folder)
     
     if in_out_split:
         images = []

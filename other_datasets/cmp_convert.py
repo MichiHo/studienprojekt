@@ -16,6 +16,7 @@ CMP dataset has the following indices (zero is omitted):
 11 pillar
 12 shop
 """
+import argparse
 import os
 import shutil
 
@@ -25,7 +26,14 @@ from tqdm import tqdm
 
 from utils import *
 
-prepare_dataset_extension_dirs()
+locations = ["outdoor_extended","inout_extended"]
+
+parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
+parser.set_defaults(overwrite=False)
+parser.add_argument('--overwrite', dest="overwrite", action="store_true",  help=f'delete previous contents of the {" and ".join(locations)} folders without asking. If not set, a dialog is shown in case one of the folders is not empty.')
+args = parser.parse_args()
+
+prepare_dataset_extension_dirs(overwrite=args.overwrite)
 
 cmp_to_studproj = [
     'background',
@@ -42,13 +50,11 @@ cmp_to_studproj = [
     'column',
     'building'
 ]
-#cmp_to_studproj = [0] * 13
 cmp_to_studproj = np.array([
     conf.by_name[v].id for v in cmp_to_studproj
 ])
 
 cmp_folder = os.path.join(conf.cmp_dir,"all")
-locations = ["outdoor_extended","inout_extended"]
 ann_folders = [os.path.join(conf.dataset_out_path,scene,"annotations","train") for scene in locations]
 img_folders = [os.path.join(conf.dataset_out_path,scene,"images","train") for scene in locations]
 filenames = [name[:-4] for name in os.listdir(cmp_folder) if name.endswith(".jpg")]
@@ -70,9 +76,8 @@ for i,filename in iterr:
         skipped += 1
         continue
     size = ann.size
-    #ann_new = Image.new('P', size)
-    newdata = cmp_to_studproj[np.array(ann)].reshape([size[1],size[0]]).astype(np.uint8)
-    print(newdata.dtype)
+    # +1 to skip the zero index
+    newdata = cmp_to_studproj[np.array(ann)].reshape([size[1],size[0]]).astype(np.uint8) + 1
     ann_new = Image.fromarray(newdata)
     ann_new.putpalette(conf.train_palette)
     

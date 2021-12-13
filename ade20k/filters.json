@@ -138,7 +138,6 @@
         },
         {
             "name": "ceiling",
-            "scene": "indoor",
             "z_index": -1,
             "synonyms": [{
                 "name": "ceiling",
@@ -151,13 +150,11 @@
         },
         {
             "name": "floor",
-            "scene": "indoor",
             "z_index": -1,
             "synonyms": ["floor, flooring"]
         },
         {
             "name": "building",
-            "scene": "outdoor",
             "z_index": -1,
             "synonyms": [{
                     "name": "wall",
@@ -191,7 +188,6 @@
         },
         {
             "name": "roof",
-            "scene": "outdoor",
             "z_index": -1,
             "synonyms": [{
                 "name": "roof",
@@ -212,7 +208,6 @@
         },
         {
             "name": "balcony",
-            "scene": "outdoor",
             "synonyms": [
                 "balcony",
                 {
@@ -223,7 +218,6 @@
         },
         {
             "name": "chimney",
-            "scene": "outdoor",
             "synonyms": ["chimney"]
         },
         {
@@ -248,36 +242,30 @@
         {
             "name": "sink",
             "z_index": 1,
-            "scene": "indoor",
             "synonyms": ["sink"]
         },
         {
             "name": "toilet",
             "z_index": 1,
-            "scene": "indoor",
             "synonyms": ["toilet, can, commode, crapper, pot, potty, stool, throne"]
         },
         {
             "name": "bathtub",
             "z_index": 1,
-            "scene": "indoor",
             "synonyms": ["bathtub, bathing tub, bath, tub"]
         },
         {
             "name": "shower",
-            "scene": "indoor",
             "z_index": 1,
             "synonyms": ["shower", "showers"]
         }, {
             "name": "outlet",
             "z_index": 1,
-            "scene": "indoor",
             "synonyms": ["wall socket, wall plug, electric outlet, electrical outlet, outlet, electric receptacle", "switch, electric switch, electrical switch"]
         },
         {
             "name": "vents",
             "z_index": 1,
-            "scene": "indoor",
             "synonyms": [{
                     "name": "vent",
                     "parents": ["building, edifice"]
@@ -287,18 +275,11 @@
         },
         {
             "name": "fire_extinguisher",
-            "scene": "indoor",
             "z_index": 1,
             "synonyms": ["fire extinguisher, extinguisher, asphyxiator"]
         }, {
-            "name": "oven",
-            "z_index": 1,
-            "scene": "indoor",
-            "synonyms": ["stove, kitchen stove, range, kitchen range, cooking stove"]
-        }, {
             "name": "radiator",
             "z_index": 1,
-            "scene": "indoor",
             "synonyms": ["radiator"]
         },
         {
@@ -315,11 +296,6 @@
                 },
                 "railing, rail"
             ]
-        },
-        {
-            "name": "fire_escape",
-            "scene": "outdoor",
-            "synonyms": ["fire escape"]
         }
     ]
 }

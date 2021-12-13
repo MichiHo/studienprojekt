@@ -1,8 +1,8 @@
 """Create ade_stats.pkl from all img annotation jsons, containing two fields:
 
 -   classes: contains for each class:
-    -   name
-    -   scenes: scenes it is present in, 
+    -   name .. of the class
+    -   scenes .. it is present in, 
     -   parents: a dict mapping class-ids (or -1 for NONE) to the number this parent-class is assumed
     -   object_count: total number of class instances in the dataset
     -   image_count: number of images containing this class
@@ -21,7 +21,7 @@ from tqdm import tqdm
 import ade_utils as utils
 from utils import path_arg, conf
 
-parser = argparse.ArgumentParser(description=__doc__)
+parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
 parser.add_argument('--out-path', type=path_arg, default=conf.ade_stats_path,
     help='path of the output pkl file. (default from configuration)')
 args = parser.parse_args()
@@ -35,7 +35,7 @@ missing_parents = 0
 scenes = dict()
 
 for img_index in tqdm(range(utils.num_images)):
-    imgdata = utils.ImgData.load(ade_index['folder'][img_index],ade_index['filename'][img_index][:-4])
+    imgdata = utils.ImgData.loadi(ade_index,img_index)
     scene = imgdata['scene'][0]
     if not scene in scenes: scenes[scene] = 0
     scenes[scene] += 1

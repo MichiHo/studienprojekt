@@ -1,10 +1,13 @@
+
+This repository is the code submission for my study project (M.Sc. Computer Science). It contains tools for exploring and re-annotating (the ADE20k dataset)[https://groups.csail.mit.edu/vision/datasets/ADE20K/], extending it with two other datasets and for using MMSegmentation (training, inference) and visualizing its results. 
+
 # Setup
 
-This repository contains tools for exploring and re-annotating ADE20k and for using MMSegmentation (training, inference) and visualizing its results. There are a few resources that need to be obtained before using it. The script `setup.sh` tries to automate some of this, except the dataset-downloads.
+There are a few resources that need to be obtained before using it. The script `setup.sh` tries to automate most of it, except the dataset-downloads.
 
 ## Python requirements
 
-The requirements from `requirements.txt` need to be installed, preferrably in a virtual environment. Python Version 3.7 or above is required.
+The requirements from `requirements.txt` need to be installed, preferrably in a virtual environment. I use Python Version 3.7 or above, including among others mmcv 1.3.9, mmsegmentation 0.17.0, torch 1.9.0, torchvision 0.10.0. PyTorch and MMCV require special versions of each other and also special download sources. I tried to include everything into `requirements.txt`.
 
 ## MMSegmentation
 
@@ -61,7 +64,9 @@ I included scripts to extend the dataset with cmp_facade and labelmefacade, whic
 
 # Scripts
 
-I created various scripts during the process, which make up most of this repo and which I want to quickly outline here. The data sources used by those scripts are:
+I created various scripts during the process, which make up most of this repo and which I want to quickly outline here. Every script can show help on itself without doing anything else by running it like `python3 some_script.py --help`. 
+
+The data sources used by those scripts are:
 
 -   The **ADE20k-index**, i.e. the file `index_ade20k.pkl`, shipped with ADE20k (and also [here](http://groups.csail.mit.edu/vision/datasets/ADE20K/toolkit/index_ade20k.pkl)) which contains metadata about the dataset, including classnames and occurences, which can be used without the dataset itself to query its statistics.
 -   The **ADE20k dataset** itself, obtainable via a 5.6GB download from https://groups.csail.mit.edu/vision/datasets/ADE20K (access must first be requested and an account created).

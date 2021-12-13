@@ -186,8 +186,6 @@ with HtmlContext(args.out_dir,"ADE20k Summary") as w:
                 out_name = f"{filename}_{classname}_outlines.jpg"
                 out_path = os.path.join(w.img_folder,out_name)
                 img, img_data = utils.AdeIndex.load_img(ade_index, img_index,load_imgdata=True)
-                # img = cv2.imread(os.path.join(foldername,filename+".jpg"))
-                # img_data = utils.ImgData.load(foldername,filename)
                 # Highlight this class
                 classes_colors.append((class_index,None,class_color_dict[class_index],8 ))
                 img,obj_counts = utils.Images.class_outlines(img,img_data,classes_colors,False,True,scaling=scalefac(img))
@@ -226,12 +224,9 @@ with HtmlContext(args.out_dir,"ADE20k Summary") as w:
             
             for img_index in tqdm(all_matches[:args.count],desc="Search for examples"):
                 filename = ade_index['filename'][img_index][:-4]
-                #foldername = ade_index['folder'][img_index]
                 out_name = f"{filename}_combi{i}_outlines.jpg"
                 out_path = os.path.join(w.img_folder,out_name)
                 img, img_data = utils.AdeIndex.load_img(ade_index, img_index,load_imgdata=True)
-                # img = cv2.imread(os.path.join(foldername,filename+".jpg"))
-                # img_data = utils.ImgData.load(foldername,filename)
                 img,obj_counts = utils.Images.class_outlines(img,img_data,classes_colors,False,True,scaling=scalefac(img))
                 cv2.imwrite(out_path,img)
                 w(f'''<div title="{img_data['scene']}" class='grid-item'><p class="scene">{img_data['scene']}</p><img {'class="portrait" ' if img.shape[0] > img.shape[1] else ""} src='{w.imgpath(out_name)}'></div>''')
@@ -262,12 +257,9 @@ with HtmlContext(args.out_dir,"ADE20k Summary") as w:
             print(f"({current_item}/{num_total_items}) Child: {child_class_name} Parents: {' & '.join([f'{n}(#{i})' for i,n in parents])}")
             t = tqdm(total=len(parents),desc="Search for one example per parent")
             for img_index in utils.AdeIndex.images_with_class(ade_index,child_class_id,random=True):
-                #print(f"   IMG {img_index}",end="\r")
                 filename = ade_index['filename'][img_index][:-4]
-                #foldername = ade_index['folder'][img_index]
                 img_data = utils.AdeIndex.load_img(ade_index, img_index,
                                 load_imgdata=True,load_training_image=False)
-                #img_data = utils.ImgData.load(foldername,filename)
                 for child_instance in utils.ImgData.objects_of_class(img_data,child_class_id):
                     parent_id = child_instance['parts']['ispartof']
                     if type(parent_id) == int:
@@ -275,7 +267,6 @@ with HtmlContext(args.out_dir,"ADE20k Summary") as w:
                         parent_class_id = parent_instance['name_ndx']
                     else:
                         parent_class_id = -1
-                    #print(f"   {child_instance['name']} of {parent_class_id}", end="\r")
                     if parent_class_id in parents_left:
                         parents_left.remove(parent_class_id)
                         t.update(len(parents) - len(parents_left))
@@ -286,7 +277,6 @@ with HtmlContext(args.out_dir,"ADE20k Summary") as w:
                         out_name = f"{filename}_{child_class_name}_of_{parent_class}_outlines.jpg"
                         out_path = os.path.join(w.img_folder,out_name)
                         img = utils.AdeIndex.load_img(ade_index, img_index)
-                        #img = cv2.imread(os.path.join(foldername,filename+".jpg"))
                         img = utils.Images.class_outlines(img,img_data,classes_colors,legend=False,highlight_instances=[
                             { 
                                 "id": parent_id,

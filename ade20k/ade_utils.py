@@ -393,7 +393,7 @@ class Images(object):
         
         img_size = img_data['imsize'][:2]
         dtype = np.uint8
-        masks_folder = os.path.join(folder,filename)
+        masks_folder = os.path.join(project_root_folder,folder,filename)
         
         # Load remains class for scene of image and init image with it.
         remains_class = conf.remains_classes[img_data['scene'][0]]
@@ -487,9 +487,17 @@ class AdeIndex(object):
         data_file.close()
         print("done.")
         return ade_index
+    
+    @staticmethod
+    def img_path(ade_index, img_index):
+        return os.path.join(project_root_folder,ade_index['folder'][img_index],ade_index['filename'][img_index])
 
     @staticmethod
-    def load_img(ade_index, img_index, load_imgdata=False, load_training_image=True):
+    def img_folder(ade_index, img_index):
+        return os.path.join(project_root_folder,ade_index['folder'][img_index],ade_index['filename'][img_index][:-4])
+        
+    @staticmethod
+    def load_img(ade_index, img_index, load_imgdata=False, load_training_image=True, pillow=False):
         """Loads, for the given index, the training image from .jpg and/or the imgdata from .json
 
         Args:
@@ -505,7 +513,10 @@ class AdeIndex(object):
         filename = ade_index['filename'][img_index][:-4]
         foldername = ade_index['folder'][img_index]
         if load_training_image:
-            img = cv2.imread(os.path.join(project_root_folder,foldername, filename+".jpg"))
+            if pillow:
+                img = Image.open(AdeIndex.img_path(ade_index,img_index))
+            else:
+                img = cv2.imread(AdeIndex.img_path(ade_index,img_index))
         if load_imgdata:
             img_data = ImgData.load(foldername, filename)
             if load_training_image: return (img, img_data)
@@ -641,10 +652,11 @@ class AdeIndex(object):
                 yield i2
     
     @staticmethod
-    def any_images(random=False):
+    def any_images(count=num_images,random=False):
         """Iterate over all image IDs, optionally randomized
 
         Args:
+            count (int, optional): How many images to return. Defaults to all of them.
             random (bool, optional): Whether to randomize the order. Defaults to False.
 
         Returns:
@@ -652,9 +664,11 @@ class AdeIndex(object):
         """
         if random: 
             iterr = np.random.permutation(num_images)
-        for i in range(num_images):
+            
+        for i in range(count):
             if random: yield iterr[i]
-            else: yield i
+            else: 
+                yield i
         
     
     @staticmethod
@@ -704,7 +718,7 @@ class ImgData(object):
         """Load the annotations json for the given image
 
         Args:
-            folder (str): Folder name
+            folder (str): Folder name, relative to project_root
             name (str): File name (without extension!)
 
         Returns:

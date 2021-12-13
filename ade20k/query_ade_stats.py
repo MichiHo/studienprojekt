@@ -6,7 +6,6 @@ your input and give you a choice."""
 import json
 
 import numpy as np
-import pandas as pd
 
 import ade_utils as utils
 
@@ -20,6 +19,10 @@ except FileNotFoundError:
     print("ade_stats.pkl file could not be found. You can create it with the script create_ade_stats.py")
     exit()
 
+B  = '\033[34m' # blue
+W  = '\033[0m'  # white (normal)
+underl = '\033[4;1m'
+normal = '\033[0m'
 
 while True:
     query = input("Class to show: ")
@@ -53,13 +56,13 @@ while True:
     
     d = ade_stats['classes'][class_id]
     print()
-    print("##",name)
+    print(underl + name + normal)
     print(f"total instances: {d['object_count']}")
     print(f"images containing it: {d['image_count']}")
     print("scenes:",' '.join([f"{c}x {s}" for s,c in d['scenes'].items()]))
     print("parents:")
     # Parents of class_id, sorted by count
     for p_id, p_count in sorted(d['parents'].items(),key= lambda x:x[1],reverse=True):
-        print(f"- {'NONE' if p_id == -1 else ade_index['objectnames'][p_id]} : {p_count}")
+        print(f"- {B + 'NONE' + W if p_id == -1 else ade_index['objectnames'][p_id]} : {p_count}")
     print()
 

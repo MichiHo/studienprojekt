@@ -38,7 +38,6 @@ results = dict()
 for classname, class_id in zip(args.classnames,class_ids):
     print(f" - '{classname}' (#{class_id})")
     # Stats for one class
-    #objects = utils.objects.load()
     # How often is obj of class part of each other class?
     results[class_id] = dict(
         no_parent = 0,
@@ -59,28 +58,44 @@ for i in tqdm(range(utils.num_images),desc="Analyzing images"):
             class_id = obj['name_ndx']
             if not class_id in class_ids: continue
             if obj['parts']['ispartof'] == []:
-                result[class_id]['no_parent'] += 1
+                results[class_id]['no_parent'] += 1
             else:
                 parent = utils.ImgData.find_obj_by_id(imgdata,obj['parts']['ispartof'])
-                result[class_id]['with_parent'] += 1
-                if not parent['name'] in parents:
-                    result[class_id]['parents'][parent['name']] = 1
+                results[class_id]['with_parent'] += 1
+                if not parent['name'] in results[class_id]['parents']:
+                    results[class_id]['parents'][parent['name']] = 1
                 else:
-                    result[class_id]['parents'][parent['name']] += 1
-                    
-print("")
+                    results[class_id]['parents'][parent['name']] += 1
+             
 
     
-for classname, class_id in zip(args.classnames,class_ids):
-    print(f"img {imgs:5} no_parent {no_parent:5} with_parent {with_parent:5}{'.'*80}\r",end="")
-    d = results[classname]
-    out_file = f"class_stats_{classname}.csv"
-    with open(out_file,"w") as file:
-        file.write("parent class; count\n")
-        file.write(f"NONE; {d['no_parent']}\n")
+B  = '\033[34m' # blue
+W  = '\033[0m'  # white (normal)
+Gy  = '\033[90m' # Gray
+underl = '\033[4;1m'
+normal = '\033[0m'
+
+if args.save and not os.path.exists(args.out_dir):
+    os.makedirs(args.out_dir)
+
+for classname, class_id in zip(args.classnames,class_ids):       
+    d = results[class_id]
+    print("")
+    print(underl + classname + normal + Gy + f" {d['imgs']:5} images,{d['with_parent']:5} with parent, {d['no_parent']:5} without" + normal)
+    d['parents'] = dict(sorted(d['parents'].items(),key=lambda it:it[1],reverse=True))
+    if args.display:
+        print("parent class; count")
+        print(f"{B}NONE{W}; {d['no_parent']}")
         for name,count in d['parents'].items():
-            file.write(f"{name}; {count};\n")
+            print(f"{name}; {count};")
+    if args.save:
+        out_file = f"class_stats_{classname}.csv"
+        with open(os.path.join(args.out_dir,out_file),"w") as file:
+            file.write("parent class; count\n")
+            file.write(f"NONE; {d['no_parent']}\n")
+            for name,count in d['parents'].items():
+                file.write(f"{name}; {count};\n")
             
-    
-print("Encodings found:")
-print(utils.imgdata_encs)
+if len(utils.imgdata_encs) > 1:
+    print("Multiple encodings found:")
+    print(utils.imgdata_encs)

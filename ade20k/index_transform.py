@@ -10,6 +10,7 @@ import numpy as np
 from tqdm import tqdm
 import os
 import argparse
+import shutil
 
 from utils import * 
 
@@ -21,18 +22,36 @@ parser.add_argument('--subsets', type=str, nargs='+', default=["indoor","outdoor
 parser.add_argument('--lut', type=int, nargs='+', default=None, help='the look-up table to use. If none is given, a selection is presented.')
 args = parser.parse_args()
 
+for subset in args.subsets:
+    dirr = os.path.join(args.out_dir,subset)
+    if os.path.exists(dirr) and len(os.listdir(dirr)) > 0:
+        if input(f"Output folder {dirr} is not empty. Clear contents? [y/n]").lower() == 'y':
+            shutil.rmtree(dirr)
+            os.makedirs(dirr)
+        else:
+            print("Skipping this folder")
+            args.subsets.remove(subset)
+if len(args.subsets) == 0:
+    print("No subfolders left")
+    exit()
+            
+
 if args.lut is None:
     luts = [
-        ("Remove index 0", np.arange(1,23)),
+        ("Leave out index 0 / right shift", np.arange(1,23)),
         ("Join index 0 and 1", np.concatenate([[0],np.arange(1,23)]))
     ]
-
-    lutname, args.lut = multichoice(luts,displaylist=[l[0] for l in luts])
+    ch = choice(luts,displaylist=[f"{l[0]} : {l[1]}" for l in luts])
+    if ch is None:
+        exit()
+    lutname, args.lut = ch
 lut = np.array(args.lut)
 # Train images palette starts at index one!
 newpalette = np.concatenate([np.array([0,0,0],dtype=np.uint8),conf.palette.flatten()]).astype(np.uint8)
 
-print(f"This will copy all annotations inside {args.studienprojekt_dir} to {args.out_dir} after applying LUT {lut}.")
+print(f"This will copy all annotations inside {args.studienprojekt_dir} to {args.out_dir} after applying the LUT")
+print(f"LUT: {lut}.")
+print(f"Picked subfolders: {' '.join(args.subsets)}")
 print("Palette:",newpalette)
 if not input(f"Okay? [y/n] ") in ["y","Y"]: exit()
 

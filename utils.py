@@ -53,7 +53,7 @@ class GeneralConfig(object):
             return os.path.expanduser(os.path.join(project_root_folder,data[p]))
             
         self.annotate_filers_conf =    path('annotate_filers_conf')
-        self.annotate_snippets_dir =   path('annotate_snippets_dir')
+        self.annotate_snippet_dir =   path('annotate_snippet_dir')
         self.dataset_out_path =        path('dataset_out_dir')
         
         self.ade_index_path =          path('ade_index_path')
@@ -70,16 +70,18 @@ class GeneralConfig(object):
         self.segmentation_model_path = path('segmentation_model_dir')
         self.segmentation_out_path =   path('segmentation_out_dir')
         
+        self.test_images_dir =         path('test_images_dir')
+        
         self.html_template_dir =       path('html_template_dir')
-
-    def padded_palette(padding_length):
+        
+    def padded_palette(self,padding_length):
         """Return the color palette, padded with [0,0,0] entries to the given length. If padding_length
         is smaller than the palette, it will be cropped"""
-        if padding_length < len(palette):
-            print(f"Padded palette will be shorter than original palette! {padding_length} < {len(palette)}")
-            return palette[:padding_length]
+        if padding_length < len(self.palette):
+            print(f"Padded palette will be shorter than original palette! {padding_length} < {len(self.palette)}")
+            return self.palette[:padding_length]
         
-        return np.concatenate([palette,np.zeros((len(padding_length)-len(palette),3))]).astype(np.uint8)
+        return np.concatenate([self.palette,np.zeros((padding_length-len(self.palette),3))]).astype(np.uint8)
 try:   
     conf = GeneralConfig()
 except FileNotFoundError:
@@ -372,12 +374,22 @@ def nice_config_title(this_info):
     
     return this_info['exp_name']
 
-def prepare_dataset_extension_dirs():
+def prepare_dataset_extension_dirs(overwrite=False):
     """Creates the folders for the extended dataset by copying the outdoor and inout folders into
-    outdoor_extended and inout_extended, if they do not exist already."""
+    outdoor_extended and inout_extended, if they do not exist already. If a folder exists but does
+    not contain a 'done' file, a prompt is asked from the user to overwrite it."""
     for loc in ["inout","outdoor"]:
         in_path = os.path.join(conf.dataset_out_path,loc)
         out_path = os.path.join(conf.dataset_out_path,loc+"_extended")
-        if not os.path.exist(out_path):
-            print(f"Generate {out_path} by copying {in_path}")
-            shutil.copytree(in_path, out_path)
+        if os.path.exists(out_path):
+            if 'done' in os.listdir(out_path):
+                continue
+            if len(os.listdir(out_path)) > 0: 
+                if overwrite or input(f"Folder {out_path} seems to be unfinished. Delete and copy again from {in_path}? [y/n] ").lower() == 'y':
+                    shutil.rmtree(out_path)
+                else:
+                    raise FileExistsError(f"Folder {out_path} is already there and not empty.")
+        print(f"Generate {out_path} by copying {in_path}...")
+        shutil.copytree(in_path, out_path)
+        os.mknod(os.path.join(out_path,'done'))
+        print("... done.")
