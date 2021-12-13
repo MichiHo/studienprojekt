@@ -1,5 +1,5 @@
 
-This repository is the code submission for my study project (M.Sc. Computer Science). It contains tools for exploring and re-annotating (the ADE20k dataset)[https://groups.csail.mit.edu/vision/datasets/ADE20K/], extending it with two other datasets and for using MMSegmentation (training, inference) and visualizing its results. 
+This repository is the code submission for a university project. It contains tools for exploring and re-annotating [the ADE20k dataset](https://groups.csail.mit.edu/vision/datasets/ADE20K/), extending it with two other datasets and for using MMSegmentation (training, inference) and visualizing its results. 
 
 # Setup
 
@@ -115,3 +115,15 @@ The data sources used by those scripts are:
 
 ## Others:
 -   `class_table.py` creates a HTML file with a table of all classes, their scenes and their colors.
+
+
+# Training
+
+Training is done as described by MMSegmentation docs [here](https://github.com/open-mmlab/mmsegmentation/blob/master/docs/train.md), only with the new configuration files from the forked MMSegmentation repo. The files are under `mmsegmentation/configs/swin/` and cover the setups I tried during my studies. As I only adapted the nested configuration structure as it was for the original full ade20k-setup, each "highest-level" setup builds on two layers of "smaller" setups, with the following naming scheme, from "high" to "low":
+1.  `upernet_swin_base_patch4_window12_512x512_`**SETUP**`_pretrain_22K.py`
+2.  `upernet_swin_base_patch4_window12_512x512_`**SETUP**`_pretrain_1K.py`
+3.  `upernet_swin_tiny_patch4_window7_512x512_`**SETUP**`_pretrain_224x224_1K.py`
+
+I always used the "highest" configuration. My chosen final algorithm replaces **SETUP** with `80k_studienprojekt_inout_extended_weighted`. Training with this configuration would be the following command from within the `mmsegmentation` folder, with `NUM_GPUS` replaced with the number of GPUs to use:
+
+`./tools/dist_train.sh ./configs/swin/upernet_swin_base_patch4_window12_512x512_80k_studienprojekt_inout_extended_weighted_pretrain_384x384_22K.py NUM_GPUS`
